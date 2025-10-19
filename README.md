@@ -1,2 +1,2 @@
-# GamingPlatform_FrontEnd
-Frontend for Gaming Platform project
+# BookStore_FrontEnd
+Frontend for BookStore project
