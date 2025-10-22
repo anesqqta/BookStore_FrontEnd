@@ -39,7 +39,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact {
+.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact, .empty {
   font-family: "Open Sans", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -161,7 +161,7 @@ section{
    text-align: center;
    background-color: var(--white);
    border-radius: .5rem;
-   text-transform: capitalize;
+   text-transform: none;
 }
 .more-btn{
    margin-top: 2rem;
@@ -279,7 +279,7 @@ section{
    padding:1rem 1.5rem;
    display: block;
    color:var(--light-color);
-   text-transform: capitalize;
+   text-transform: none;
    font-weight: 400;
 }
 .header .flex .navbar ul li a:hover{
@@ -461,7 +461,7 @@ section{
 }
 .home-contact .content h3{
    text-transform: uppercase;
-   color:var(--white);
+   color:var(--beige);
    font-size: 3rem;
 }
 .home-contact .content p{
@@ -498,7 +498,7 @@ section{
 }
 .about .flex .content h3{
    font-size: 3rem;
-   text-transform: capitalize;
+   text-transform: none;
    color:var(--brown);
 }
 .about .flex .content p{
@@ -829,7 +829,7 @@ section{
    color:var(--white);
    border-radius: .5rem;
    text-align: center;
-   text-transform: capitalize;
+   text-transform: none;
 }
 .checkout form .flex{
    display: flex;

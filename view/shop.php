@@ -6,39 +6,37 @@ if(!isset($user_id)){
    header('location:login.php');
 };
 if(isset($_POST['add_to_wishlist'])){
-    $product_id = $_POST['product_id'];
-    $product_name = $_POST['product_name'];
-    $product_price = $_POST['product_price'];
-    $product_image = $_POST['product_image'];
-    $check_wishlist_numbers = mysqli_query($conn, "SELECT * FROM wishlist WHERE name = '$product_name' AND user_id = '$user_id'") or die('Запит не вдався');
-    $check_cart_numbers = mysqli_query($conn, "SELECT * FROM cart WHERE name = '$product_name' AND user_id = '$user_id'") or die('Запит не вдався');
-    if(mysqli_num_rows($check_wishlist_numbers) > 0){
-        $message[] = 'Продукт вже додано в бажаний список';
-    }elseif(mysqli_num_rows($check_cart_numbers) > 0){
-        $message[] = 'Продукт вже додано в кошик';
-    }else{
-        mysqli_query($conn, "INSERT INTO wishlist(user_id, pid, name, price, image) VALUES('$user_id', '$product_id', '$product_name', '$product_price', '$product_image')") or die('Запит не вдався');
-        $message[] = 'Продукт додано в бажаний список';
-    }
+   $message = [];
+   $product_id = $_POST['product_id'];
+   $product_name = mysqli_real_escape_string($conn, $_POST['product_name']);
+   $product_price = $_POST['product_price'];
+   $product_image = $_POST['product_image'];
+   $check_wishlist_numbers = mysqli_query($conn, "SELECT * FROM wishlist WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
+   if(mysqli_num_rows($check_wishlist_numbers) > 0){
+       $message[] = 'Товар вже додано до списку бажаного';
+   } else {
+       mysqli_query($conn, "INSERT INTO wishlist(user_id, book_id, name, price, image) VALUES('$user_id', '$product_id', '$product_name', '$product_price', '$product_image')") or die('query failed');
+       $message[] = 'Товар додано до списку бажаного';
+   }
 }
 if(isset($_POST['add_to_cart'])){
-    $product_id = $_POST['product_id'];
-    $product_name = $_POST['product_name'];
-    $product_price = $_POST['product_price'];
-    $product_image = $_POST['product_image'];
-    $product_quantity = $_POST['product_quantity'];
-    $check_cart_numbers = mysqli_query($conn, "SELECT * FROM cart WHERE name = '$product_name' AND user_id = '$user_id'") or die('Запит не вдався');
-    if(mysqli_num_rows($check_cart_numbers) > 0){
-        $message[] = 'Продукт вже додано в кошик';
-    }else{
-        $check_wishlist_numbers = mysqli_query($conn, "SELECT * FROM wishlist WHERE name = '$product_name' AND user_id = '$user_id'") or die('Запит не вдався');
-        if(mysqli_num_rows($check_wishlist_numbers) > 0){
-            mysqli_query($conn, "DELETE FROM wishlist WHERE name = '$product_name' AND user_id = '$user_id'") or die('Запит не вдався');
-        }
-
-        mysqli_query($conn, "INSERT INTO cart(user_id, pid, name, price, quantity, image) VALUES('$user_id', '$product_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('Запит не вдався');
-        $message[] = 'Продукт додано в кошик';
-    }
+   $message = [];
+   $product_id = $_POST['product_id'];
+   $product_name = mysqli_real_escape_string($conn, $_POST['product_name']);
+   $product_price = $_POST['product_price'];
+   $product_image = $_POST['product_image'];
+   $product_quantity = $_POST['product_quantity'];
+   $check_cart_numbers = mysqli_query($conn, "SELECT * FROM cart WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
+   if(mysqli_num_rows($check_cart_numbers) > 0){
+       $message[] = 'Товар вже додано до кошика';
+   }else{
+       $check_wishlist_numbers = mysqli_query($conn, "SELECT * FROM wishlist WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
+       if(mysqli_num_rows($check_wishlist_numbers) > 0){
+           mysqli_query($conn, "DELETE FROM wishlist WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
+       }
+       mysqli_query($conn, "INSERT INTO cart(user_id, book_id, name, price, quantity, image) VALUES('$user_id', '$product_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
+       $message[] = 'Товар додано до кошика';
+   }
 }
 ?>
 <!DOCTYPE html>
@@ -66,7 +64,7 @@ if(isset($_POST['add_to_cart'])){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
       <form action="" method="POST" class="box">
-         <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>" class="fas fa-eye"></a>
+         <a href="view_page.php?book_id=<?php echo $fetch_products['id']; ?>" class="fas fa-eye"></a>
          <div class="price">₴<?php echo $fetch_products['price']; ?>/-</div>
          <img src="../uploaded_img/<?php echo $fetch_products['image']; ?>" alt="" class="image">
          <div class="name"><?php echo $fetch_products['name']; ?></div>
