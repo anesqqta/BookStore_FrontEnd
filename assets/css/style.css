@@ -39,7 +39,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact, .empty {
+.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact, .empty, .search-form form .box {
   font-family: "Open Sans", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -132,6 +132,7 @@ section{
    padding:1rem 3rem;
    text-transform: none;
 }
+
 .btn{
    background-color: var(--light-beige);
 }
