@@ -57,7 +57,7 @@ if(isset($_POST['add_to_cart'])){
    <div class="content">
       <h3>Book Store</h3>
       <p>Відкрий сторінку свого натхнення. Завітай до нас, щоб відчути справжню магію книг!</p>
-      <a href="about.php" class="btn">дізнатися більше</a>
+      <a href="about.php" class="btn">Дізнатися більше</a>
    </div>
 </section>
 <section class="products">
@@ -71,15 +71,15 @@ if(isset($_POST['add_to_cart'])){
       <form action="" method="POST" class="box">
          <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>" class="fas fa-eye"></a>
          <div class="price">₴<?php echo $fetch_products['price']; ?>/-</div>
-         <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="" class="image">
+         <img src="../uploaded_img/<?php echo $fetch_products['image']; ?>" alt="" class="image">
          <div class="name"><?php echo $fetch_products['name']; ?></div>
          <input type="number" name="product_quantity" value="1" min="0" class="qty">
          <input type="hidden" name="product_id" value="<?php echo $fetch_products['id']; ?>">
          <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
          <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
          <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
-         <input type="submit" value="додати до списку бажаного" name="add_to_wishlist" class="option-btn">
-         <input type="submit" value="додати до кошика" name="add_to_cart" class="btn">
+         <input type="submit" value="Додати до списку бажаного" name="add_to_wishlist" class="option-btn">
+         <input type="submit" value="Додати до кошика" name="add_to_cart" class="btn">
       </form>
       <?php
          }
@@ -89,18 +89,17 @@ if(isset($_POST['add_to_cart'])){
       ?>
    </div>
    <div class="more-btn">
-      <a href="shop.php" class="option-btn">завантажити ще</a>
+      <a href="shop.php" class="option-btn">Завантажити ще</a>
    </div>
 </section>
 <section class="home-contact">
    <div class="content">
       <h3>Є питання?</h3>
-      <p>Перейдіть за посиланням нижче.</p>
-      <a href="contact.php" class="btn">зв'яжіться з нами</a>
+      <p>Перейдіть за посиланням нижче</p>
+      <a href="contact.php" class="btn">Зв'яжіться з нами</a>
    </div>
 </section>
-<?php @include 'footer.php'; ?>
-
+<?php include 'includes/footer.php'; ?>
 <script src="../assets/js/script.js"></script>
 </body>
 </html>

@@ -14,8 +14,15 @@
    --border:.2rem solid var(--brown);
    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
 }
-
-.home .content h3, .home-contact .content h3  {
+*{
+   font-family: 'Rubik', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+   transition:all .2s linear;
+}
+.home .content h3, .title, .home-contact .content h3, .heading h3, .about .flex .content h3{
   font-family: "Playfair Display", serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -23,7 +30,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.home .content p, .btn, .home-contact .content h3, .header .flex .navbar ul li a {
+.btn, .header .flex .navbar ul li a, .home .content p, .home-contact .content p, .footer .box-container .box h3, .heading p {
   font-family: "Raleway", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -31,7 +38,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.products .box-container .box .price, .products .box-container .box .price, .option-btn, .home-contact .content .btn:hover{
+.products .box-container .box .price, .products .box-container .box .price, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p {
   font-family: "Open Sans", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -47,14 +54,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-*{
-   font-family: 'Rubik', sans-serif;
-   margin:0; padding:0;
-   box-sizing: border-box;
-   outline: none; border:none;
-   text-decoration: none;
-   transition:all .2s linear;
-}
+
 
 
 *::selection{
@@ -121,7 +121,17 @@ section{
    color:var(--light-gray);
    cursor: pointer;
    padding:1rem 3rem;
-   text-transform: capitalize;
+   text-transform: none;
+}
+.btn-about{
+   display: inline-block;
+   border-radius: .5rem;
+   margin-top: 1rem;
+   font-size: 1.8rem;
+   color:var(--dark-gray);
+   cursor: pointer;
+   padding:1rem 3rem;
+   text-transform: none;
 }
 .btn{
    background-color: var(--light-beige);
@@ -132,9 +142,14 @@ section{
 .option-btn{
    background-color: var(--beige);
 }
-.btn:hover, .delete-btn:hover, .option-btn:hover{
+.btn-about{
    background-color: var(--light-gray);
 }
+.btn:hover, .delete-btn:hover, .option-btn:hover, .btn-about:hover{
+   background-color: var(--brown);
+}
+
+
 .empty{
    padding:1.5rem;
    font-size: 2rem;
@@ -162,15 +177,15 @@ section{
 }
 .heading h3{
    font-size: 5.5rem;
-   color:var(--white);
+   color:var(--beige);
    text-transform: uppercase;
 }
 .heading p{
    font-size: 2.5rem;
-   color:var(--light-white);
+   color:var(--light-gray);
 }
 .heading p a{
-   color:var(--dark-gray);
+   color:var(--beige);
 }
 .heading p a:hover{
    text-decoration: underline;
@@ -263,12 +278,12 @@ section{
    display: block;
    color:var(--light-color);
    text-transform: capitalize;
-   font-weight: 600;
+   font-weight: 400;
 }
 .header .flex .navbar ul li a:hover{
    background-color: var(--brown);
    color:var(--white);
-   font-weight: 600;
+   font-weight: 400;
 }
 .header .flex .navbar ul li ul{
    position: absolute;
@@ -299,34 +314,7 @@ section{
 #menu-btn{
    display: none;
 }
-.header .flex .account-box{
-   position: absolute;
-   top:120%; right:2rem;
-   background-color: var(--white);
-   border:var(--border);
-   text-align: center;
-   box-shadow: var(--box-shadow);
-   padding:2rem;
-   border-radius: .5rem;
-   width: 33rem;
-   display: none;
-   animation: fadeIn .2s linear;
-}
-.header .flex .account-box.active{
-   display: block;
-}
-.header .flex .account-box p{
-   padding-bottom: 1rem;
-   font-size: 2rem;
-   color:var(--light-color);
-   line-height: 1.5;
-}
-.header .flex .account-box p span{
-   color:var(--dark-gray);
-}
-.header .flex .account-box .delete-btn{
-   margin-top: .5rem;
-}
+
 .home{
    min-height: 60vh;
    background:url(../images/home.jpg) no-repeat;
@@ -510,7 +498,7 @@ section{
 .about .flex .content p{
    padding:1rem 0;
    font-size: 1.5rem;
-   color:var(--light-color);
+   color:var(--light-gray);
    line-height: 2;
 }
 .about .flex:nth-child(2){
@@ -877,7 +865,7 @@ section{
    color:var(--dark-gray);
 }
 .footer{
-   background-color: var(--white);
+   background-color: var(--light-beige);
 }
 .footer .box-container{
    max-width: 1200px;

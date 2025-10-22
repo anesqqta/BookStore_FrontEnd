@@ -1,16 +1,12 @@
-let userBox = document.querySelector('.header .flex .account-box');
-document.querySelector('#user-btn').onclick = () =>{
-   userBox.classList.toggle('active');
-   navbar.classList.remove('active');
-}
-
 let navbar = document.querySelector('.header .flex .navbar');
-document.querySelector('#menu-btn').onclick = () =>{
-   navbar.classList.toggle('active');
-   userBox.classList.remove('active');
+let userBox = document.querySelector('.header .flex .user-box'); // додали userBox
+
+document.querySelector('#menu-btn').onclick = () => {
+    if (navbar) navbar.classList.toggle('active');
+    if (userBox) userBox.classList.remove('active');
 }
 
-window.onscroll = () =>{
-   userBox.classList.remove('active');
-   navbar.classList.remove('active');
+window.onscroll = () => {
+    if (userBox) userBox.classList.remove('active');
+    if (navbar) navbar.classList.remove('active');
 }
