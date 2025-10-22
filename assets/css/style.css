@@ -7,6 +7,7 @@
    --light-beige:#FAF7F2;
    --white:#FFFFFF;
    --brown:#4A3F35;
+   --lightgray: #AAAAAA;
 
 
    --light-white:#ccc;
@@ -22,7 +23,7 @@
    text-decoration: none;
    transition:all .2s linear;
 }
-.home .content h3, .title, .home-contact .content h3, .heading h3, .about .flex .content h3{
+.home .content h3, .title, .home-contact .content h3, .heading h3, .about .flex .content h3, .contact form h3{
   font-family: "Playfair Display", serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -38,7 +39,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.products .box-container .box .price, .products .box-container .box .price, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p {
+.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact {
   font-family: "Open Sans", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -78,7 +79,7 @@ html{
    scroll-padding-top: 6.5rem;
 }
 body{
-   background: var(--light-bg);
+   background: var(--light-beige);
 }
 section{
    padding:3rem 2rem;
@@ -88,7 +89,7 @@ section{
    top:0;
    margin:0 auto;
    max-width: 1200px;
-   background-color: var(--light-bg);
+   background-color: var(--light-beige);
    display: flex;
    align-items: center;
    padding:2rem;
@@ -123,7 +124,7 @@ section{
    padding:1rem 3rem;
    text-transform: none;
 }
-.btn-about{
+.btn-about, .btn-contact{
    display: inline-block;
    border-radius: .5rem;
    margin-top: 1rem;
@@ -143,9 +144,12 @@ section{
    background-color: var(--beige);
 }
 .btn-about{
-   background-color: var(--light-gray);
+   background-color: var(--lightgray);
 }
-.btn:hover, .delete-btn:hover, .option-btn:hover, .btn-about:hover{
+.btn-contact{
+   background-color: var(--beige);
+}
+.btn:hover, .delete-btn:hover, .option-btn:hover, .btn-about:hover, .btn-contact:hover{
    background-color: var(--brown);
 }
 
@@ -229,7 +233,7 @@ section{
    font-size: 1.8rem;
    color:var(--brown);
    border:var(--border);
-   background-color: var(--light-bg);
+   background-color: var(--light-beige);
    margin:1rem 0;
    border-radius: .5rem;
 }
@@ -472,6 +476,10 @@ section{
    background-color: var(--light-gray);
    color:var(--light-gray);
 }
+.about {
+    background-color: var(--light-beige);
+    padding: 2rem 0;
+}
 .about .flex{
    max-width: 1200px;
    margin:0 auto;
@@ -505,6 +513,10 @@ section{
    margin:3rem auto;
    flex-wrap: wrap-reverse;
 }
+.reviews {
+    background-color: var(--light-beige);
+    padding: 2rem 0;
+}
 .reviews .box-container{
    max-width: 1200px;
    margin:0 auto;
@@ -530,18 +542,18 @@ section{
 .reviews .box-container .box p{
    padding:1rem 0;
    font-size: 1.5rem;
-   color:var(--light-color);
+   color:var(--dark-gray);
    line-height: 2;
 }
 .reviews .box-container .box .stars{
    display: inline-block;
-   background: var(--light-bg);
+   background: var(--light-beige);
    border-radius: .5rem;
    padding:1rem 1.5rem;
    border:var(--border);
 }
 .reviews .box-container .box .stars i{
-   color:var(--orange);
+   color:var(--brown);
    font-size: 1.7rem;
    margin:0 .3rem;
 }
@@ -549,6 +561,10 @@ section{
    font-size: 2rem;
    color:var(--brown);
    margin-top: 1rem;
+}
+.contact {
+    background-color: var(--light-beige);
+    padding: 2rem 0;
 }
 .contact form{
    max-width: 50rem;
