@@ -56,8 +56,6 @@
   transition:all .2s linear;
 }
 
-
-
 *::selection{
    background-color: var(--dark-gray);
    color:var(--white);
