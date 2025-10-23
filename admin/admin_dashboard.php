@@ -17,7 +17,7 @@ if(!isset($admin_id)){
     <link rel="stylesheet" href="../assets/css/admin_style.css">
 </head>
 <body>
-<?php include 'includes/admin_header.php'; ?>
+<?php include 'admin_header.php'; ?>
 <section class="dashboard">
    <h1 class="title">ПАНЕЛЬ АДМІНІСТРАТОРА</h1>
    <div class="box-container">

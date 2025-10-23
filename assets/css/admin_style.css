@@ -25,7 +25,7 @@
    text-decoration: none;
    transition:all .2s linear;
 }
-.title{
+.header .flex .logo .logo-bottom, .title{
   font-family: "Playfair Display", serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -41,7 +41,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.dashboard .box-container .box h3, .dashboard .box-container .box p {
+.header .flex .logo .logo-bottom, .dashboard .box-container .box h3, .dashboard .box-container .box p {
   font-family: "Open Sans", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -224,12 +224,26 @@ section{
    color:var(--brown);
 }
 .header .flex .logo{
+   display: flex;
+   flex-direction: column;
+   line-height: 1.1; 
+}
+
+.header .flex .logo .logo-top{
+   font-family: 'Praise', cursive;
    font-size: 2.5rem;
-   color:var(--brown);
+   font-weight: 700;
+   color: var(--brown);
 }
-.header .flex .logo span{
-   color:var(--brown);
+
+.header .flex .logo .logo-bottom{
+   font-family: 'Playfair Display', serif; 
+   font-size: 1.5rem;
+   font-weight: 500;
+   color: var(--brown);
 }
+
+
 #menu-btn{
    display: none;
 }
