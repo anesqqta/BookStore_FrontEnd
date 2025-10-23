@@ -25,7 +25,7 @@
    text-decoration: none;
    transition:all .2s linear;
 }
-.home .content h3, .title, .home-contact .content h3, .heading h3, .about .flex .content h3, .contact form h3, .checkout form h3{
+.home .content h3, .title, .home-contact .content h3, .heading h3, .about .flex .content h3, .contact form h3, .checkout form h3, .form-container form h3{
   font-family: "Playfair Display", serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -41,7 +41,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact, .empty, .search-form form .box, .cart-btn, .wishlist .box-container .box .name, .wishlist .box-container .box .price, .wishlist .wishlist-total p, .wishlist .wishlist-total p span, .shopping-cart .cart-total p, .shopping-cart .cart-total p span, .shopping-cart .box-container .box .name, .shopping-cart .box-container .box .price, .shopping-cart .box-container .box .sub-total, .display-order p, .display-order .grand-total, .display-order .grand-total span, .checkout form .flex .inputBox span, .checkout form .flex .inputBox input, .filter-toggle, .filter-dropdown .filter-group select, .filter-dropdown .filter-group input {
+.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact, .empty, .search-form form .box, .cart-btn, .wishlist .box-container .box .name, .wishlist .box-container .box .price, .wishlist .wishlist-total p, .wishlist .wishlist-total p span, .shopping-cart .cart-total p, .shopping-cart .cart-total p span, .shopping-cart .box-container .box .name, .shopping-cart .box-container .box .price, .shopping-cart .box-container .box .sub-total, .display-order p, .display-order .grand-total, .display-order .grand-total span, .checkout form .flex .inputBox span, .checkout form .flex .inputBox input, .filter-toggle, .filter-dropdown .filter-group select, .filter-dropdown .filter-group input, .form-container form .box, .form-container form p {
   font-family: "Open Sans", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;

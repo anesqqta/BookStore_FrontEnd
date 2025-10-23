@@ -27,6 +27,7 @@ if(isset($message)){
                 <li><a href="#">Обліковий запис +</a>
                     <ul>
                         <li><a href="profile.php">Профіль</a></li>
+                        <li><a href="logout.php">Вийти</a></li>
                         <li><a href="login.php">Увійти</a></li>
                         <li><a href="register.php">Зареєстр.</a></li>
                     </ul>
