@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
          $_SESSION['admin_name'] = $row['name'];
          $_SESSION['admin_email'] = $row['email'];
          $_SESSION['admin_id'] = $row['id'];
-         header('location:admin_page.php');
+         header('location:../admin/admin_dashboard.php');
       }elseif($row['user_type'] == 'user'){
          $_SESSION['user_name'] = $row['name'];
          $_SESSION['user_email'] = $row['email'];
@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>УВІЙТИ</title>
+   <title>Увійти</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -52,7 +52,7 @@ if(isset($message)){
 ?>
 <section class="form-container">
    <form action="" method="post">
-      <h3>Увійти</h3>
+      <h3>УВІЙТИ</h3>
       <input type="email" name="email" class="box" placeholder="введіть ваш email" required>
       <input type="password" name="pass" class="box" placeholder="введіть ваш пароль" required>
       <input type="submit" class="option-btn" name="submit" value="Увійти">
