@@ -8,6 +8,8 @@
    --white:#FFFFFF;
    --brown:#4A3F35;
    --lightgray: #AAAAAA;
+   --light-red: #E0B1B1;
+   --red: #EC0000;
 
 
    --light-white:#ccc;
@@ -39,7 +41,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact, .empty, .search-form form .box {
+.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact, .empty, .search-form form .box, .cart-btn, .wishlist .box-container .box .name, .wishlist .box-container .box .price, .wishlist .wishlist-total p, .wishlist .wishlist-total p span, .shopping-cart .cart-total p, .shopping-cart .cart-total p span, .shopping-cart .box-container .box .name, .shopping-cart .box-container .box .price, .shopping-cart .box-container .box .sub-total {
   font-family: "Open Sans", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -112,20 +114,25 @@ section{
    opacity: .5;
    user-select: none;
 }
-.btn, .delete-btn, .option-btn{
+.btn, .delete-btn, .option-btn, .cart-btn{
    display: inline-block;
    border-radius: .5rem;
    margin-top: 1rem;
+   padding: 0 3rem;
+   height: 4.5rem; 
+   line-height: 4.5rem;
    font-size: 1.8rem;
    color:var(--light-gray);
    cursor: pointer;
-   padding:1rem 3rem;
    text-transform: none;
 }
 .btn-about, .btn-contact{
    display: inline-block;
    border-radius: .5rem;
    margin-top: 1rem;
+   padding: 0 3rem;
+   height: 4.5rem; 
+   line-height: 4.5rem;
    font-size: 1.8rem;
    color:var(--dark-gray);
    cursor: pointer;
@@ -137,10 +144,13 @@ section{
    background-color: var(--light-beige);
 }
 .delete-btn{
-   background-color: var(--light-gray);
+   background-color: var(--light-red);
 }
 .option-btn{
    background-color: var(--beige);
+}
+.cart-btn{
+   background-color: var(--lightgray);
 }
 .btn-about{
    background-color: var(--lightgray);
@@ -239,7 +249,7 @@ section{
 .form-container form p{
    margin-top: 1.5rem;
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--brown);
 }
 .form-container form p a{
    color:var(--dark-gray);
@@ -279,7 +289,7 @@ section{
    font-size: 2rem;
    padding:1rem 1.5rem;
    display: block;
-   color:var(--light-color);
+   color:var(--brown);
    text-transform: none;
    font-weight: 400;
 }
@@ -440,7 +450,7 @@ section{
 .quick-view form .details{
    padding:1rem 0;
    font-size: 1.5rem;
-   color:var(--light-color);
+   color:var(--brown);
    line-height: 2;
 }
 .quick-view form .qty{
@@ -664,7 +674,7 @@ section{
    background-color: var(--brown);
 }
 .wishlist .box-container .box .name{
-   font-size: 2rem;
+   font-size: 2.2rem;
    color:var(--brown);
    margin:1rem 0;
 }
@@ -686,11 +696,11 @@ section{
 }
 .wishlist .wishlist-total p{
    font-size: 2.5rem;
-   color:var(--light-color);
+   color:var(--brown);
    margin-bottom: 1rem;
 }
 .wishlist .wishlist-total p span{
-   color:var(--light-gray);
+   color:var(--red);
 }
 .shopping-cart .box-container{
    max-width: 1200px;
@@ -742,7 +752,7 @@ section{
    background-color: var(--brown);
 }
 .shopping-cart .box-container .box .name{
-   font-size: 2rem;
+   font-size: 2.2rem;
    color:var(--brown);
    margin:1rem 0;
 }
@@ -761,7 +771,7 @@ section{
 .shopping-cart .box-container .box .sub-total{
    margin-top: 1.5rem;
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--brown);
 }
 .shopping-cart .box-container .box .sub-total span{
    color:var(--light-gray);
@@ -779,11 +789,11 @@ section{
 }
 .shopping-cart .cart-total p{
    font-size: 2.5rem;
-   color:var(--light-color);
+   color:var(--brown);
    margin-bottom: 1rem;
 }
 .shopping-cart .cart-total p span{
-   color:var(--light-gray);
+   color:var(--red);
 }
 .display-order{
    max-width: 1200px;
@@ -808,7 +818,7 @@ section{
 .display-order .grand-total{
    margin-top: 2rem;
    font-size: 2.5rem;
-   color:var(--light-color);
+   color:var(--brown);
 }
 .display-order .grand-total span{
    color:var(--light-gray);
@@ -852,7 +862,7 @@ section{
 }
 .checkout form .flex .inputBox span{
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--brown);
 }
 .placed-orders .box-container{
    max-width: 1200px;
@@ -874,7 +884,7 @@ section{
    margin: 1rem 0;
    font-size: 2rem;
    line-height: 1.5;
-   color:var(--light-color);
+   color:var(--brown);
 }
 .placed-orders .box-container .box p span{
    color:var(--dark-gray);
@@ -898,7 +908,7 @@ section{
 }
 .footer .box-container a, .footer .box-container p{
    font-size: 1.7rem;
-   color:var(--light-color);
+   color:var(--brown);
    padding:1rem 0;
    display: block;
 }
@@ -916,7 +926,7 @@ section{
    margin-top: 2.5rem;
    border-top: var(--border);
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--brown);
 }
 .footer .credit span{
    color:var(--dark-gray);
