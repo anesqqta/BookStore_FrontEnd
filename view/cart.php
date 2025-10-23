@@ -73,7 +73,7 @@ if (isset($_POST['update_quantity'])) {
     <div class="cart-total">
         <p>Загальна сума : <span>₴<?php echo $grand_total; ?>/-</span></p>
         <a href="shop.php" class="option-btn">Продовжити покупку</a>
-        <a href="chekout.php" class="cart-btn <?php echo ($grand_total > 1) ? '' : 'disabled' ?>">Перейти до оформлення</a>
+        <a href="checkout.php" class="cart-btn <?php echo ($grand_total > 1) ? '' : 'disabled' ?>">Перейти до оформлення</a>
     </div>
 </section>
 <?php include 'includes/footer.php'; ?>

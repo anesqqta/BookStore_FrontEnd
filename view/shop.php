@@ -56,15 +56,70 @@ if(isset($_POST['add_to_cart'])){
     <p> <a href="home.php">головна</a> / магазин </p>
 </section>
 <section class="products">
-   <h1 class="title">ТОВАРИ</h1>
+   <div class="products-header">
+    <h1 class="title">ТОВАРИ</h1>
+    <div class="filter-wrapper">
+        <button type="button" class="filter-toggle">Фільтри <i class="fas fa-chevron-down"></i></button>
+        <form action="" method="GET" class="filter-dropdown">
+            <div class="filter-group">
+                <label for="genre">Жанр:</label>
+                <select name="genre" id="genre">
+                    <option value="">Всі</option>
+                    <option value="Фентезі">Фентезі</option>
+                    <option value="Роман">Роман</option>
+                    <option value="Детектив">Детектив</option>
+                    <option value="Біографія">Біографія</option>
+                    <option value="Наукова фантастика">Наукова фантастика</option>
+                    <option value="Жахи">Жахи</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="year">Рік:</label>
+                <input type="number" name="year" id="year" placeholder="Наприклад: 2025" value="<?= isset($_GET['year']) ? htmlspecialchars($_GET['year']) : '' ?>">
+            </div>
+            <div class="filter-group">
+                <label>Ціна:</label>
+                <div class="price-range">
+                    <input type="number" name="price_min" placeholder="Від" value="<?= isset($_GET['price_min']) ? htmlspecialchars($_GET['price_min']) : '' ?>">
+                    <input type="number" name="price_max" placeholder="До" value="<?= isset($_GET['price_max']) ? htmlspecialchars($_GET['price_max']) : '' ?>">
+                </div>
+            </div>
+            <div class="filter-buttons">
+                <button type="submit" class="btn">Застосувати</button>
+                <a href="shop.php" class="option-btn">Очистити</a>
+            </div>
+        </form>
+    </div>
+</div>
    <div class="box-container">
 <?php
-         $select_products = mysqli_query($conn, "SELECT * FROM products") or die('Запит не вдався');
+         $where = [];
+if (!empty($_GET['genre'])) {
+    $genre = mysqli_real_escape_string($conn, $_GET['genre']);
+    $where[] = "genre = '$genre'";
+}
+if (!empty($_GET['year'])) {
+    $year = (int)$_GET['year'];
+    $where[] = "year_published = $year";
+}
+if (!empty($_GET['price_min'])) {
+    $min = (float)$_GET['price_min'];
+    $where[] = "price >= $min";
+}
+if (!empty($_GET['price_max'])) {
+    $max = (float)$_GET['price_max'];
+    $where[] = "price <= $max";
+}
+$query = "SELECT * FROM products";
+if (!empty($where)) {
+    $query .= " WHERE " . implode(" AND ", $where);
+}
+$select_products = mysqli_query($conn, $query) or die('Запит не вдався');
          if(mysqli_num_rows($select_products) > 0){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
       <form action="" method="POST" class="box">
-         <a href="view_page.php?book_id=<?php echo $fetch_products['id']; ?>" class="fas fa-eye"></a>
+         <a href="view_book.php?book_id=<?php echo $fetch_products['id']; ?>" class="fas fa-eye"></a>
          <div class="price">₴<?php echo $fetch_products['price']; ?>/-</div>
          <img src="../uploaded_img/<?php echo $fetch_products['image']; ?>" alt="" class="image">
          <div class="name"><?php echo $fetch_products['name']; ?></div>

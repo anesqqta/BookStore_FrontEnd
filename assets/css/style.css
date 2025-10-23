@@ -25,7 +25,7 @@
    text-decoration: none;
    transition:all .2s linear;
 }
-.home .content h3, .title, .home-contact .content h3, .heading h3, .about .flex .content h3, .contact form h3{
+.home .content h3, .title, .home-contact .content h3, .heading h3, .about .flex .content h3, .contact form h3, .checkout form h3{
   font-family: "Playfair Display", serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -41,7 +41,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact, .empty, .search-form form .box, .cart-btn, .wishlist .box-container .box .name, .wishlist .box-container .box .price, .wishlist .wishlist-total p, .wishlist .wishlist-total p span, .shopping-cart .cart-total p, .shopping-cart .cart-total p span, .shopping-cart .box-container .box .name, .shopping-cart .box-container .box .price, .shopping-cart .box-container .box .sub-total {
+.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact, .empty, .search-form form .box, .cart-btn, .wishlist .box-container .box .name, .wishlist .box-container .box .price, .wishlist .wishlist-total p, .wishlist .wishlist-total p span, .shopping-cart .cart-total p, .shopping-cart .cart-total p span, .shopping-cart .box-container .box .name, .shopping-cart .box-container .box .price, .shopping-cart .box-container .box .sub-total, .display-order p, .display-order .grand-total, .display-order .grand-total span, .checkout form .flex .inputBox span, .checkout form .flex .inputBox input, .filter-toggle, .filter-dropdown .filter-group select, .filter-dropdown .filter-group input {
   font-family: "Open Sans", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -139,7 +139,6 @@ section{
    padding:1rem 3rem;
    text-transform: none;
 }
-
 .btn{
    background-color: var(--light-beige);
 }
@@ -161,8 +160,6 @@ section{
 .btn:hover, .delete-btn:hover, .option-btn:hover, .btn-about:hover, .btn-contact:hover{
    background-color: var(--brown);
 }
-
-
 .empty{
    padding:1.5rem;
    font-size: 2rem;
@@ -422,45 +419,153 @@ section{
 .products .box-container .box .btn, .products .box-container .box .option-btn{
    width: 100%;
 }
-.quick-view form{
-   max-width: 60rem;
-   padding:2rem;
+.products-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 0 60rem;
+}
+.filter-wrapper {
+    position: relative;
+}
+.filter-toggle {
+    background-color: var(--beige);
+    color: var(--brown);
+    border: var(--border);
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+.filter-dropdown {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: .5rem;
+    padding: 1rem;
+    z-index: 10;
+    min-width: 25rem;
+}
+.filter-dropdown .filter-group {
+    margin-bottom: 1rem;
+}
+.filter-dropdown .filter-group label {
+    font-size: 1.6rem;
+    color: var(--brown);
+    margin-bottom: .5rem;
+    display: block;
+}
+.filter-dropdown .filter-group select,
+.filter-dropdown .filter-group input {
+    width: 100%;
+    padding: .8rem 1rem;
+    border: var(--border);
+    border-radius: .5rem;
+    font-size: 1.6rem;
+}
+.filter-dropdown .price-range {
+    display: flex;
+    gap: 1rem;
+}
+.filter-dropdown .filter-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.view-book {
+   padding: 4rem 2rem;
+}
+
+.view-book .title {
    text-align: center;
-   border:var(--border);
-   box-shadow: var(--border);
-   border-radius: .5rem;
-   background-color: var(--white);
-   margin:0 auto;
+   font-size: 2.6rem;
+   color: var(--brown);
+   margin-bottom: 3rem;
 }
-.quick-view form .image{
-   height: 33rem;
-   border:var(--border);
-   border-radius: .5rem;
+
+
+.book-container {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 2rem;
+   max-width: 1100px;
+   margin: 0 auto;
+   align-items: flex-start;
 }
-.quick-view form .name{
-   margin:1rem 0;
-   font-size: 2rem;
-   color:var(--brown);
+
+.book-image {
+   flex: 1 1 40rem;
+   text-align: center;
 }
-.quick-view form .price{
-   color:var(--light-gray);
-   font-size: 2.5rem;
-   padding:.5rem 0;
-}
-.quick-view form .details{
-   padding:1rem 0;
-   font-size: 1.5rem;
-   color:var(--brown);
-   line-height: 2;
-}
-.quick-view form .qty{
+
+.book-image img {
    width: 100%;
-   padding:1.2rem 1.4rem;
-   font-size: 1.8rem;
-   color:var(--brown);
+   max-width: 380px;
    border-radius: .5rem;
-   border:var(--border);
-   margin:.5rem 0;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.book-details {
+   flex: 1 1 50rem;
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 2rem 3rem;
+   box-shadow: var(--box-shadow);
+}
+
+.book-details h2 {
+   font-size: 2.4rem;
+   color: var(--brown);
+   margin-bottom: 1rem;
+}
+
+.book-details p {
+   font-size: 1.6rem;
+   margin: .5rem 0;
+   color: var(--gray);
+}
+
+.book-details .price {
+   font-size: 2rem;
+   color: var(--dark-brown);
+   font-weight: bold;
+   margin: 1.5rem 0;
+}
+
+.book-details .descriptions {
+   margin-top: 1.5rem;
+   line-height: 1.8;
+}
+
+.book-details .descriptions .secondary {
+   color: var(--light-gray);
+   margin-top: .5rem;
+}
+
+.book-details .qty {
+   width: 6rem;
+   padding: .8rem;
+   font-size: 1.6rem;
+   border: var(--border);
+   border-radius: .5rem;
+   margin: 1.2rem 0;
+}
+
+.book-details .buttons {
+   display: flex;
+   gap: 1rem;
+}
+
+.book-details .btn,
+.book-details .option-btn {
+   flex: 1;
+   text-align: center;
 }
 .home-contact{
    background-color: var(--brown);
@@ -821,7 +926,7 @@ section{
    color:var(--brown);
 }
 .display-order .grand-total span{
-   color:var(--light-gray);
+   color:var(--red);
 }
 .checkout form{
    background-color: var(--white);
@@ -837,7 +942,7 @@ section{
    font-size: 2.5rem;
    margin-bottom: 2rem;
    background-color: var(--brown);
-   color:var(--white);
+   color:var(--beige);
    border-radius: .5rem;
    text-align: center;
    text-transform: none;

@@ -10,3 +10,25 @@ window.onscroll = () => {
     if (userBox) userBox.classList.remove('active');
     if (navbar) navbar.classList.remove('active');
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.querySelector('.filter-toggle');
+    const dropdown = document.querySelector('.filter-dropdown');
+
+    if (toggleBtn && dropdown) {
+        toggleBtn.addEventListener('click', () => {
+            // Перемикаємо display між 'none' і 'block'
+            if(dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            } else {
+                dropdown.style.display = 'block';
+            }
+        });
+
+        // Закриття при кліку поза блоком
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    }
+});
