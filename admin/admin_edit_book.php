@@ -68,7 +68,7 @@ if(isset($_POST['update_product'])){
 </head>
 <body>
 
-<?php @include 'admin_header.php'; ?>
+<?php include 'admin_header.php'; ?>
 
 <section class="update-product">
 <?php

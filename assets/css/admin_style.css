@@ -42,7 +42,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.header .flex .logo .logo-bottom, .dashboard .box-container .box h3, .dashboard .box-container .box p, .add-products form .box, .add-products form .box, .delete-btn, .option-btn, .show-products .box-container .box .price, .update-product form .box, .placed-orders .box-container .box p, .placed-orders .box-container .box p span {
+.header .flex .logo .logo-bottom, .dashboard .box-container .box h3, .dashboard .box-container .box p, .add-products form .box, .add-products form .box, .delete-btn, .option-btn, .show-products .box-container .box .price, .update-product form .box, .placed-orders .box-container .box p, .placed-orders .box-container .box p span, .messages .box-container .box p, .messages .box-container .box p span {
   font-family: "Open Sans", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -469,7 +469,7 @@ section{
 }
 .messages .box-container .box p{
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--light-gray);
    margin-bottom: 1rem;
    line-height: 1.5;
 }

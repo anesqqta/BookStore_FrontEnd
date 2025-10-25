@@ -28,7 +28,7 @@ if(isset($_GET['delete'])){
    <link rel="stylesheet" href="../assets/css/admin_style.css">
 </head>
 <body>
-<?php @include 'admin_header.php'; ?>
+<?php include 'admin_header.php'; ?>
 <section class="placed-orders">
    <h1 class="title">ОФОРМЛЕНІ ЗАМОВЛЕННЯ</h1>
    <div class="box-container">
