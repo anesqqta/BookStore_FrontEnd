@@ -11,10 +11,6 @@
    --lightgray: #AAAAAA;
    --light-red: #E0B1B1;
    --red: #EC0000;
-
-
-   --light-white:#ccc;
-   --light-bg:#f5f5f5;
    --border:.2rem solid var(--brown);
    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
 }
@@ -26,7 +22,7 @@
    text-decoration: none;
    transition:all .2s linear;
 }
-.home .content h3, .title, .home-contact .content h3, .heading h3, .about .flex .content h3, .contact form h3, .checkout form h3, .form-container form h3{
+.home .content h3, .title, .home-contact .content h3, .heading h3, .about .flex .content h3, .contact form h3, .checkout form h3, .form-container form h3, .book-info h2{
   font-family: "Playfair Display", serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -42,7 +38,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact, .empty, .search-form form .box, .cart-btn, .wishlist .box-container .box .name, .wishlist .box-container .box .price, .wishlist .wishlist-total p, .wishlist .wishlist-total p span, .shopping-cart .cart-total p, .shopping-cart .cart-total p span, .shopping-cart .box-container .box .name, .shopping-cart .box-container .box .price, .shopping-cart .box-container .box .sub-total, .display-order p, .display-order .grand-total, .display-order .grand-total span, .checkout form .flex .inputBox span, .checkout form .flex .inputBox input, .filter-toggle, .filter-dropdown .filter-group select, .filter-dropdown .filter-group input, .form-container form .box, .form-container form p {
+.products .box-container .box .price, .products .box-container .box .name, .option-btn, .home-contact .content .btn:hover, .footer .box-container a, .footer .box-container p, .footer .credit, .about .flex .content p, .btn-about, .btn-contact, .reviews .box-container .box p, .reviews .box-container .box h3, .contact form .box, .btn-contact, .empty, .search-form form .box, .cart-btn, .wishlist .box-container .box .name, .wishlist .box-container .box .price, .wishlist .wishlist-total p, .wishlist .wishlist-total p span, .shopping-cart .cart-total p, .shopping-cart .cart-total p span, .shopping-cart .box-container .box .name, .shopping-cart .box-container .box .price, .shopping-cart .box-container .box .sub-total, .display-order p, .display-order .grand-total, .display-order .grand-total span, .checkout form .flex .inputBox span, .checkout form .flex .inputBox input, .filter-toggle, .filter-dropdown .filter-group select, .filter-dropdown .filter-group input, .form-container form .box, .form-container form p, .book-info p, .book-info .label, .book-info .value, .book-price-box .price, .book-price-box .qty {
   font-family: "Open Sans", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -478,91 +474,81 @@ section{
     gap: 1rem;
     justify-content: flex-end;
 }
-
-.view-book {
-   padding: 4rem 2rem;
-}
-
-.view-book .title {
-   text-align: center;
-   font-size: 2.6rem;
-   color: var(--brown);
-   margin-bottom: 3rem;
-}
-
-
-.book-container {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 2rem;
-   max-width: 1100px;
+.book-view {
+   background-color: var(--lightbeige);
+   padding: 5rem 2rem;
+   max-width: 1200px;
    margin: 0 auto;
-   align-items: flex-start;
 }
-
-.book-image {
-   flex: 1 1 40rem;
-   text-align: center;
+.book-wrapper {
+   display: grid;
+   grid-template-columns: 1fr 1.5fr 0.7fr;
+   gap: 3rem;
+   background-color: var(--lightbeige);
+   border: var(--border);
+   box-shadow: var(--box-shadow);
+   padding: 3rem;
+   border-radius: .5rem;
 }
-
 .book-image img {
    width: 100%;
-   max-width: 380px;
+   max-width: 300px;
    border-radius: .5rem;
-   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.book-details {
-   flex: 1 1 50rem;
-   background-color: var(--white);
-   border-radius: .5rem;
-   padding: 2rem 3rem;
    box-shadow: var(--box-shadow);
 }
-
-.book-details h2 {
-   font-size: 2.4rem;
-   color: var(--brown);
-   margin-bottom: 1rem;
+.book-info h2 {
+   font-size: 2.6rem;
+   color: var(--dark-gray);
+   margin-bottom: 1.5rem;
 }
-
-.book-details p {
+.book-info p {
    font-size: 1.6rem;
-   margin: .5rem 0;
-   color: var(--gray);
-}
-
-.book-details .price {
-   font-size: 2rem;
-   color: var(--dark-brown);
-   font-weight: bold;
-   margin: 1.5rem 0;
-}
-
-.book-details .descriptions {
-   margin-top: 1.5rem;
-   line-height: 1.8;
-}
-
-.book-details .descriptions .secondary {
    color: var(--light-gray);
-   margin-top: .5rem;
+   margin: .5rem 0;
 }
-
-.book-details .qty {
-   width: 6rem;
-   padding: .8rem;
-   font-size: 1.6rem;
+.book-info .label {
+   color: var(--ligth-gray);
+}
+.book-info .value {
+   color: var(--brown);
+   margin-left: .4rem;
+}
+.book-price-box {
    border: var(--border);
    border-radius: .5rem;
-   margin: 1.2rem 0;
+   padding: 2rem;
+   text-align: center;
+   background-color: var(--lightbeige);
+   height: fit-content;
 }
-
-.book-details .buttons {
-   display: flex;
-   gap: 1rem;
+.book-price-box .price {
+   font-size: 2.4rem;
+   color: var(--brown);
+   font-weight: bold;
+   margin-bottom: 1rem;
 }
-
+.book-price-box .qty {
+   width: 60px;
+   padding: .8rem;
+   border: var(--border);
+   border-radius: .5rem;
+   margin: 1rem 0;
+}
+.book-description {
+   background-color: var(--lightbeige);
+   border: var(--border);
+   border-radius: .5rem;
+   box-shadow: var(--box-shadow);
+   margin-top: 3rem;
+   padding: 3rem 4rem;
+   line-height: 1.9;
+   color: var(--light-gray);
+   font-size: 1.6rem;
+   text-align: center; 
+   max-width: 1000px;
+   margin-left: auto;
+   margin-right: auto;
+}
 .book-details .btn,
 .book-details .option-btn {
    flex: 1;
@@ -584,7 +570,7 @@ section{
 .home-contact .content p{
    line-height: 2;
    font-size: 1.5rem;
-   color:var(--light-white);
+   color:var(--lightbeige);
    padding:1rem 0;
 }
 .home-contact .content .btn:hover{
@@ -705,7 +691,7 @@ section{
    padding:1.2rem 1.4rem;
    font-size: 1.8rem;
    color:var(--brown);
-   background-color: var(--light-bg);
+   background-color: var(--lightbeige);
 }
 .contact form textarea{
    height: 15rem;
@@ -959,7 +945,7 @@ section{
 .checkout form .flex .inputBox input, .checkout form .flex .inputBox select{
    margin:1rem 0;
    width: 100%;
-   background-color: var(--light-bg);
+   background-color: var(--lightbeige);
    padding:1.2rem 1.4rem;
    border:var(--border);
    font-size: 1.8rem;
@@ -1037,7 +1023,7 @@ section{
 .footer .credit span{
    color:var(--dark-gray);
 }
-/* media */
+
 @media (max-width:991px){
    html{
       font-size: 55%;
@@ -1069,7 +1055,7 @@ section{
       position: static;
       width: 100%;
       animation: none;
-      background-color: var(--light-bg);
+      background-color: var(--lightbeige);
    }
    .header .flex .navbar ul li ul li{
       padding-left: 2rem;

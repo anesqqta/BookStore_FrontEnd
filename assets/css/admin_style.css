@@ -12,10 +12,6 @@
    --light-red: #E0B1B1;
    --red: #EC0000;
    --orange: #f39c12;
-
-
-   --light-white:#ccc;
-   --light-bg:#f5f5f5;
    --border:.2rem solid var(--brown);
    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
 }
@@ -107,7 +103,7 @@ section{
    top:0;
    margin:0 auto;
    max-width: 1200px;
-   background-color: var(--light-bg);
+   background-color: var(--lightbeige);
    display: flex;
    align-items: center;
    padding:2rem;
@@ -300,7 +296,7 @@ section{
    font-size: 1.8rem;
    color:var(--brown);
    border-radius: .5rem;
-   background-color: var(--light-bg);
+   background-color: var(--lightbeige);
    padding:1.2rem 1.4rem;
    border:var(--border);
 }
