@@ -4,7 +4,8 @@
    --dark-gray:#2C2C2C;
    --light-gray:#6B6B6B;
    --beige:#E0CFB1;
-   --light-beige:#FAF7F2;
+   --light-beige: #F4EDE4;
+   --lightbeige:#FAF7F2;
    --white:#FFFFFF;
    --brown:#4A3F35;
    --lightgray: #AAAAAA;
@@ -25,7 +26,7 @@
    text-decoration: none;
    transition:all .2s linear;
 }
-.header .flex .logo .logo-bottom, .title{
+.header .flex .logo .logo-bottom, .title, .add-products form h3 {
   font-family: "Playfair Display", serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -33,7 +34,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.empty{
+.empty, .btn, .header .flex .navbar a{
   font-family: "Raleway", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -41,7 +42,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.header .flex .logo .logo-bottom, .dashboard .box-container .box h3, .dashboard .box-container .box p {
+.header .flex .logo .logo-bottom, .dashboard .box-container .box h3, .dashboard .box-container .box p, .add-products form .box, .add-products form .box, .delete-btn, .option-btn, .show-products .box-container .box .price, .update-product form .box {
   font-family: "Open Sans", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -78,7 +79,7 @@ html{
    scroll-padding-top: 6.5rem;
 }
 body{
-   background: var(--light-beige);
+   background: var(--lightbeige);
 }
 section{
    padding:3rem 2rem;
@@ -95,7 +96,7 @@ section{
    border-radius: .5rem;
    margin-top: 1rem;
    font-size: 1.8rem;
-   color:var(--white);
+   color:var(--light-gray);
    cursor: pointer;
    padding:1rem 3rem;
    text-transform: capitalize;
@@ -132,18 +133,18 @@ section{
    border:var(--border);
    box-shadow: var(--box-shadow);
    text-align: center;
-   background-color: var(--white);
+   background-color: var(--light-gray);
    border-radius: .5rem;
    text-transform: capitalize;
 }
 .btn{
-   background-color: var(--brown);
+   background-color: var(--beige);
 }
 .delete-btn{
-   background-color: var(--red);
+   background-color: var(--light-beige);
 }
 .option-btn{
-   background-color: var(--orange);
+   background-color: var(--beige);
 }
 .btn:hover, .delete-btn:hover, .option-btn:hover{
    background-color: var(--brown);
@@ -217,7 +218,7 @@ section{
 .header .flex .navbar a{
    margin:0 1rem;
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--brown);
 }
 .header .flex .navbar a:hover{
    text-decoration: underline;
@@ -329,11 +330,11 @@ section{
    margin-bottom: .5rem;
 }
 .show-products .box-container .box .price{
-   background-color: var(--brown);
+   background-color: var(--beige);
    position: absolute;
    top:1rem; left:1rem;
    border-radius: .5rem;
-   color:var(--white);
+   color:var(--dark-gray);
    padding:1rem;
    font-size: 2rem;
 }
@@ -368,9 +369,9 @@ section{
    width: 100%;
    margin:1rem 0;
    font-size: 1.8rem;
-   color:var(--brown);
+   color:var(--dark-gray);
    border-radius: .5rem;
-   background-color: var(--light-bg);
+   background-color: var(--lightbeige);
    padding:1.2rem 1.4rem;
    border:var(--border);
 }

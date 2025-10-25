@@ -4,7 +4,8 @@
    --dark-gray:#2C2C2C;
    --light-gray:#6B6B6B;
    --beige:#E0CFB1;
-   --light-beige:#FAF7F2;
+   --light-beige: #F4EDE4;
+   --lightbeige:#FAF7F2;
    --white:#FFFFFF;
    --brown:#4A3F35;
    --lightgray: #AAAAAA;
@@ -79,7 +80,7 @@ html{
    scroll-padding-top: 6.5rem;
 }
 body{
-   background: var(--light-beige);
+   background: var(--lightbeige);
 }
 section{
    padding:3rem 2rem;
@@ -136,7 +137,7 @@ section{
    font-size: 1.8rem;
    color:var(--dark-gray);
    cursor: pointer;
-   padding:1rem 3rem;
+   /*padding:1rem 3rem;*/
    text-transform: none;
 }
 .btn{
@@ -350,7 +351,7 @@ section{
    color:var(--light-gray);
 }
 .products {
-    background-color: var(--light-beige);
+    background-color: var(--lightbeige);
     padding: 2rem 0;
 }
 .products .box-container{
@@ -591,7 +592,7 @@ section{
    color:var(--light-gray);
 }
 .about {
-    background-color: var(--light-beige);
+    background-color: var(--lightbeige);
     padding: 2rem 0;
 }
 .about .flex{
@@ -628,7 +629,7 @@ section{
    flex-wrap: wrap-reverse;
 }
 .reviews {
-    background-color: var(--light-beige);
+    background-color: var(--lightbeige);
     padding: 2rem 0;
 }
 .reviews .box-container{
@@ -677,7 +678,7 @@ section{
    margin-top: 1rem;
 }
 .contact {
-    background-color: var(--light-beige);
+    background-color: var(--lightbeige);
     padding: 2rem 0;
 }
 .contact form{
@@ -995,7 +996,7 @@ section{
    color:var(--dark-gray);
 }
 .footer{
-   background-color: var(--light-beige);
+   background-color: var(--lightbeige);
 }
 .footer .box-container{
    max-width: 1200px;
