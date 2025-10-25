@@ -11,6 +11,7 @@
    --lightgray: #AAAAAA;
    --light-red: #E0B1B1;
    --red: #EC0000;
+   --orange: #f39c12;
 
 
    --light-white:#ccc;
@@ -42,7 +43,7 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-.header .flex .logo .logo-bottom, .dashboard .box-container .box h3, .dashboard .box-container .box p, .add-products form .box, .add-products form .box, .delete-btn, .option-btn, .show-products .box-container .box .price, .update-product form .box, .placed-orders .box-container .box p, .placed-orders .box-container .box p span, .messages .box-container .box p, .messages .box-container .box p span {
+.header .flex .logo .logo-bottom, .dashboard .box-container .box h3, .dashboard .box-container .box p, .add-products form .box, .add-products form .box, .delete-btn, .option-btn, .show-products .box-container .box .price, .update-product form .box, .placed-orders .box-container .box p, .placed-orders .box-container .box p span, .messages .box-container .box p, .messages .box-container .box p span, .users .box-container .box p, .users .box-container .box p span, .header .flex .account-box p, .header .flex .account-box p span, .header .flex .account-box div, .header .flex .account-box div a {
   font-family: "Open Sans", sans-serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -189,7 +190,7 @@ section{
 .header .flex .account-box p{
    padding-bottom: 1rem;
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--light-gray);
    line-height: 1.5;
 }
 .header .flex .account-box p span{
@@ -198,10 +199,10 @@ section{
 .header .flex .account-box div{
    font-size: 2rem;
    margin-top: 2rem;
-   color:var(--light-color);
+   color:var(--light-gray);
 }
 .header .flex .account-box div a{
-   color:var(--orange);
+   color:var(--brown);
 }
 .header .flex .account-box div a:hover{
    text-decoration: underline;
@@ -441,7 +442,7 @@ section{
 }
 .users .box-container .box p{
    font-size: 2rem;
-   color:var(--light-color);
+   color:var(--light-gray);
    margin-bottom: 1rem;
    line-height: 1.5;
 }
