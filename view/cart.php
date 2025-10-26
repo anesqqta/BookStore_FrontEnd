@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../BookStore_BackEnd/controllers/CartController.php';
+require_once '../../BookStore_BackEnd/controllers/CartController.php';
 session_start();
 
 $user_id = $_SESSION['user_id'] ?? null;
