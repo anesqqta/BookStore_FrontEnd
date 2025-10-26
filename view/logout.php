@@ -1,7 +1,5 @@
 <?php
-@include '../../BookStore_BackEnd/config/Database.php';
-session_start();
-session_unset();
-session_destroy();
-header('location:login.php');
-?>
+require_once '../../BookStore_BackEnd/controllers/UserController.php';
+
+$userController = new UserController();
+$userController->logout();
