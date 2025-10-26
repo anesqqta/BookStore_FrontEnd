@@ -1,22 +1,20 @@
 <?php
-@include '../../BookStore_BackEnd/config/Database.php';
+require_once '../../BookStore_BackEnd/controllers/ContactController.php';
 session_start();
-$user_id = $_SESSION['user_id'];
-if (!isset($user_id)) {
-   header('location:login.php');
+
+$user_id = $_SESSION['user_id'] ?? null;
+if (!$user_id) {
+    header('location:login.php');
+    exit;
 }
-if (isset($_POST['send'])) {
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $number = mysqli_real_escape_string($conn, $_POST['number']);
-    $msg = mysqli_real_escape_string($conn, $_POST['message']);
-    $select_message = mysqli_query($conn, "SELECT * FROM message WHERE name = '$name' AND email = '$email' AND number = '$number' AND message = '$msg'") or die('Помилка запиту');
-    if (mysqli_num_rows($select_message) > 0) {
-        $message[] = 'Повідомлення вже надіслано!';
-    } else {
-        mysqli_query($conn, "INSERT INTO message(user_id, name, email, number, message) VALUES('$user_id', '$name', '$email', '$number', '$msg')") or die('Помилка запиту');
-        $message[] = 'Повідомлення успішно надіслано!';
-    }
+
+$message = [];
+$controller = new ContactController();
+
+// Обробка форми
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['send'])) {
+    $response = $controller->sendMessage($user_id, $_POST);
+    $message[] = $response;
 }
 ?>
 <!DOCTYPE html>
@@ -31,10 +29,12 @@ if (isset($_POST['send'])) {
 </head> 
 <body>
 <?php include 'includes/header.php'; ?>
+
 <section class="heading">
     <h3>Зв'язатись з нами</h3>
-    <p> <a href="home.php">головна</a> / контакти </p>
+    <p><a href="home.php">головна</a> / контакти</p>
 </section>
+
 <section class="contact">
     <form action="" method="POST">
         <h3>Надіслати нам повідомлення!</h3>
@@ -45,6 +45,7 @@ if (isset($_POST['send'])) {
         <input type="submit" value="Надіслати повідомлення" name="send" class="btn-contact">
     </form>
 </section>
+
 <?php include 'includes/footer.php'; ?>
 <script src="../assets/js/script.js"></script>
 </body>
