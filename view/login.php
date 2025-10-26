@@ -1,60 +1,61 @@
 <?php
-@include '../../BookStore_BackEnd/config/Database.php';
+require_once '../../BookStore_BackEnd/controllers/UserController.php';
 session_start();
-if(isset($_POST['submit'])){
-   $filter_email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-   $email = mysqli_real_escape_string($conn, $filter_email);
-   $filter_pass = filter_var($_POST['pass'], FILTER_SANITIZE_STRING);
-   $pass = mysqli_real_escape_string($conn, md5($filter_pass));
-   $select_users = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email' AND password = '$pass'") or die('query failed');
-   if(mysqli_num_rows($select_users) > 0){
-      $row = mysqli_fetch_assoc($select_users);
-      if($row['user_type'] == 'admin'){
-         $_SESSION['admin_name'] = $row['name'];
-         $_SESSION['admin_email'] = $row['email'];
-         $_SESSION['admin_id'] = $row['id'];
-         header('location:../admin/admin_dashboard.php');
-      }elseif($row['user_type'] == 'user'){
-         $_SESSION['user_name'] = $row['name'];
-         $_SESSION['user_email'] = $row['email'];
-         $_SESSION['user_id'] = $row['id'];
-         header('location:home.php');
-      }else{
-         $message[] = 'Користувача не знайдено!';
-      }
-   }else{
-      $message[] = 'Невірний email або пароль!';
-   }
+
+$userController = new UserController();
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['pass'] ?? '';
+
+    $loginResult = $userController->loginUser($email, $password);
+
+    if ($loginResult['status'] === 'success') {
+        if ($loginResult['user_type'] === 'admin') {
+            $_SESSION['admin_name'] = $loginResult['name'];
+            $_SESSION['admin_email'] = $loginResult['email'];
+            $_SESSION['admin_id'] = $loginResult['id'];
+            header('location:../admin/admin_dashboard.php');
+            exit;
+        } else {
+            $_SESSION['user_name'] = $loginResult['name'];
+            $_SESSION['user_email'] = $loginResult['email'];
+            $_SESSION['user_id'] = $loginResult['id'];
+            header('location:home.php');
+            exit;
+        }
+    } else {
+        $message[] = $loginResult['message'];
+    }
 }
 ?>
 <!DOCTYPE html>
 <html lang="uk">
 <head>
    <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Увійти</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+
 <?php
-if(isset($message)){
-   foreach($message as $message){
+if (!empty($message)) {
+   foreach ($message as $msg) {
       echo '
       <div class="message">
-         <span>'.$message.'</span>
+         <span>'.$msg.'</span>
          <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-      </div>
-      ';
+      </div>';
    }
 }
 ?>
+
 <section class="form-container">
    <form action="" method="post">
       <h3>УВІЙТИ</h3>
-      <input type="email" name="email" class="box" placeholder="введіть ваш email" required>
-      <input type="password" name="pass" class="box" placeholder="введіть ваш пароль" required>
+      <input type="email" name="email" class="box" placeholder="Введіть ваш email" required>
+      <input type="password" name="pass" class="box" placeholder="Введіть ваш пароль" required>
       <input type="submit" class="option-btn" name="submit" value="Увійти">
       <p>Ще не маєте облікового запису? <a href="register.php">Зареєструватися</a></p>
    </form>
