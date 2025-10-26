@@ -1,15 +1,36 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once __DIR__ . '/../../../BookStore_BackEnd/controllers/WishlistController.php';
+require_once __DIR__ . '/../../../BookStore_BackEnd/controllers/CartController.php';
+
+$user_id = $_SESSION['user_id'] ?? null;
+
+$wishlistCount = 0;
+$cartCount = 0;
+
+if ($user_id) {
+    $wishlistController = new WishlistController();
+    $cartController = new CartController();
+
+    $wishlistCount = $wishlistController->getWishlistCount($user_id);
+    $cartCount = $cartController->getCartCount($user_id);
+}
+
 if(isset($message)){
-   foreach($message as $message){
+   foreach($message as $msg){
       echo '
       <div class="message">
-         <span>'.$message.'</span>
+         <span>'.$msg.'</span>
          <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
       </div>
       ';
    }
 }
 ?>
+
 <header class="header">
     <div class="flex">
         <a href="home.php" class="logo">BookStore</a>
@@ -32,21 +53,13 @@ if(isset($message)){
                 </li>
             </ul>
         </nav>
-        <div class="icons"> 
+
         <div class="icons"> 
             <div id="menu-btn" class="fas fa-bars"></div>
             <a href="search_page.php" class="fas fa-search"></a>
             <a href="profile.php" id="user-btn" class="fas fa-user"></a>
-        <?php
-            $select_wishlist_count = mysqli_query($conn, "SELECT * FROM wishlist WHERE user_id = '$user_id'") or die('query failed');
-            $wishlist_num_rows = mysqli_num_rows($select_wishlist_count);
-        ?>
-        <a href="wishlist.php"><i class="fas fa-heart"></i><span>(<?php echo $wishlist_num_rows; ?>)</span></a>
-        <?php
-            $select_cart_count = mysqli_query($conn, "SELECT * FROM cart WHERE user_id = '$user_id'") or die('query failed');
-            $cart_num_rows = mysqli_num_rows($select_cart_count);
-        ?>
-        <a href="cart.php"><i class="fas fa-shopping-cart"></i><span>(<?php echo $cart_num_rows; ?>)</span></a>
+            <a href="wishlist.php"><i class="fas fa-heart"></i><span>(<?php echo $wishlistCount; ?>)</span></a>
+            <a href="cart.php"><i class="fas fa-shopping-cart"></i><span>(<?php echo $cartCount; ?>)</span></a>
         </div>
     </div>
 </header>
