@@ -38,7 +38,6 @@ if (isset($_POST['submit'])) {
    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-
 <?php
 if (!empty($message)) {
    foreach ($message as $msg) {
@@ -50,7 +49,6 @@ if (!empty($message)) {
    }
 }
 ?>
-
 <section class="form-container">
    <form action="" method="post">
       <h3>УВІЙТИ</h3>

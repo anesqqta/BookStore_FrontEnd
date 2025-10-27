@@ -1,19 +1,17 @@
 <?php
 require_once '../../BookStore_BackEnd/controllers/WishlistController.php';
 require_once '../../BookStore_BackEnd/controllers/CartController.php';
-
 session_start();
+
 $user_id = $_SESSION['user_id'] ?? null;
 
 if (!$user_id) {
     header('location:login.php');
     exit;
 }
-
 $wishlistController = new WishlistController();
 $cartController = new CartController();
 
-// Додати до кошика
 if (isset($_POST['add_to_cart'])) {
     $book = [
         'product_id' => $_POST['product_id'],
@@ -22,10 +20,8 @@ if (isset($_POST['add_to_cart'])) {
         'product_image' => $_POST['product_image'],
         'product_quantity' => $_POST['product_quantity'] ?? 1
     ];
-
     $cartController->addToCart($user_id, $book);
 
-    // Видалити зі списку бажаного після додавання у кошик
     $wishlist_id = $_POST['wishlist_id'] ?? null;
     if ($wishlist_id) {
         require_once '../../BookStore_BackEnd/config/Database.php';
@@ -35,11 +31,8 @@ if (isset($_POST['add_to_cart'])) {
         $stmt->bind_param("i", $wishlist_id);
         $stmt->execute();
     }
-
     $message[] = 'Товар додано до кошика!';
 }
-
-// Видалити один елемент
 if (isset($_GET['delete'])) {
     require_once '../../BookStore_BackEnd/config/Database.php';
     $database = new Database();
@@ -51,8 +44,6 @@ if (isset($_GET['delete'])) {
     header('location:wishlist.php');
     exit;
 }
-
-// Очистити весь список
 if (isset($_GET['delete_all'])) {
     require_once '../../BookStore_BackEnd/config/Database.php';
     $database = new Database();
@@ -64,16 +55,14 @@ if (isset($_GET['delete_all'])) {
     header('location:wishlist.php');
     exit;
 }
-
-// Отримати всі товари зі списку бажаного
 require_once '../../BookStore_BackEnd/config/Database.php';
-$database = new Database();
-$conn = $database->getConnection();
+    $database = new Database();
+    $conn = $database->getConnection();
 
-$result = $conn->prepare("SELECT * FROM wishlist WHERE user_id = ?");
-$result->bind_param("i", $user_id);
-$result->execute();
-$wishlist = $result->get_result();
+    $result = $conn->prepare("SELECT * FROM wishlist WHERE user_id = ?");
+    $result->bind_param("i", $user_id);
+    $result->execute();
+    $wishlist = $result->get_result();
 ?>
 <!DOCTYPE html>
 <html lang="uk">
@@ -84,14 +73,12 @@ $wishlist = $result->get_result();
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-
 <?php include 'includes/header.php'; ?>
 
 <section class="heading">
     <h3>ВАШ СПИСОК БАЖАНОГО</h3>
     <p><a href="home.php">головна</a> / список бажаного</p>
 </section>
-
 <section class="wishlist">
     <h1 class="title">Додані продукти</h1>
     <div class="box-container">
@@ -106,8 +93,7 @@ $wishlist = $result->get_result();
             <a href="view_book.php?book_id=<?php echo $item['book_id']; ?>" class="fas fa-eye"></a>
             <img src="../uploaded_img/<?php echo $item['image']; ?>" alt="" class="image">
             <div class="name"><?php echo $item['name']; ?></div>
-            <div class="price">₴<?php echo $item['price']; ?>/-</div>
-
+            <div class="price">₴<?php echo $item['price']; ?></div>
             <input type="hidden" name="wishlist_id" value="<?php echo $item['id']; ?>">
             <input type="hidden" name="product_id" value="<?php echo $item['book_id']; ?>">
             <input type="hidden" name="product_name" value="<?php echo $item['name']; ?>">
@@ -122,9 +108,8 @@ $wishlist = $result->get_result();
         }
         ?>
     </div>
-
     <div class="wishlist-total">
-        <p>Загальна сума: <span>₴<?php echo $grand_total; ?>/-</span></p>
+        <p>Загальна сума: <span>₴<?php echo $grand_total; ?></span></p>
         <a href="shop.php" class="option-btn">Продовжити покупки</a>
         <a href="wishlist.php?delete_all" class="delete-btn <?php echo ($grand_total > 0)?'':'disabled'; ?>" onclick="return confirm('Видалити все зі списку бажаного?');">Видалити все</a>
     </div>

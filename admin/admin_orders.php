@@ -11,20 +11,15 @@ if (!isset($admin_id)) {
 $controller = new AdminOrderController();
 $message = [];
 
-//  Оновлення статусу
 if (isset($_POST['update_order'])) {
     $controller->updateOrderStatus($_POST['order_id'], $_POST['update_payment']);
     $message[] = 'Статус оплати оновлено!';
 }
-
-//  Видалення замовлення
 if (isset($_GET['delete'])) {
     $controller->deleteOrder($_GET['delete']);
     header('location:admin_orders.php');
     exit;
 }
-
-//  Отримання списку замовлень
 $orders = $controller->getOrders();
 ?>
 <!DOCTYPE html>
@@ -37,14 +32,10 @@ $orders = $controller->getOrders();
    <link rel="stylesheet" href="../assets/css/admin_style.css">
 </head>
 <body>
-
 <?php include 'admin_header.php'; ?>
 
 <section class="placed-orders">
    <h1 class="title">ОФОРМЛЕНІ ЗАМОВЛЕННЯ</h1>
-
-
-
    <div class="box-container">
       <?php if (mysqli_num_rows($orders) > 0): ?>
          <?php while ($fetch_orders = mysqli_fetch_assoc($orders)): ?>
@@ -56,9 +47,8 @@ $orders = $controller->getOrders();
                <p>Email: <span><?= $fetch_orders['email']; ?></span></p>
                <p>Адреса: <span><?= $fetch_orders['address']; ?></span></p>
                <p>Товари: <span><?= $fetch_orders['total_products']; ?></span></p>
-               <p>Сума: <span>₴<?= $fetch_orders['total_price']; ?>/-</span></p>
+               <p>Сума: <span>₴<?= $fetch_orders['total_price']; ?></span></p>
                <p>Метод: <span><?= $fetch_orders['method']; ?></span></p>
-
                <form action="" method="POST">
                   <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
                   <select name="update_payment">

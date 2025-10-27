@@ -2,7 +2,6 @@
 require_once '../../BookStore_BackEnd/controllers/SearchController.php';
 require_once '../../BookStore_BackEnd/controllers/CartController.php';
 require_once '../../BookStore_BackEnd/controllers/WishlistController.php';
-
 session_start();
 
 $user_id = $_SESSION['user_id'] ?? null;
@@ -16,19 +15,14 @@ $cartController = new CartController();
 $wishlistController = new WishlistController();
 $message = [];
 
-// Додавання до списку бажаного
 if (isset($_POST['add_to_wishlist'])) {
     $response = $wishlistController->addToWishlist($user_id, $_POST);
     $message[] = $response;
 }
-
-// Додавання до кошика
 if (isset($_POST['add_to_cart'])) {
     $response = $cartController->addToCart($user_id, $_POST);
     $message[] = $response;
 }
-
-// Пошук товарів
 $results = [];
 if (isset($_POST['search_btn'])) {
     $search_box = $_POST['search_box'];
@@ -51,14 +45,12 @@ if (isset($_POST['search_btn'])) {
     <h3>СТОРІНКА ПОШУКУ</h3>
     <p><a href="home.php">головна</a> / пошук</p>
 </section>
-
 <section class="search-form">
     <form action="" method="POST">
         <input type="text" class="box" placeholder="Пошук товарів..." name="search_box" required>
         <input type="submit" class="option-btn" value="Пошук" name="search_btn">
     </form>
 </section>
-
 <section class="products" style="padding-top: 0;">
    <div class="box-container">
    <?php

@@ -7,27 +7,20 @@ if (!$admin_id) {
     header('location:../view/login.php');
     exit;
 }
-
 $controller = new AdminProductController();
 $message = [];
 
-//  Додати товар
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_product'])) {
     $response = $controller->addProduct($_POST, $_FILES);
     $message[] = $response;
 }
-
-//  Видалити товар
 if (isset($_GET['delete'])) {
     $controller->deleteProduct($_GET['delete']);
     header('location:admin_products.php');
     exit;
 }
-
-//  Отримати список товарів
 $products = $controller->getProducts();
 ?>
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -49,7 +42,6 @@ $products = $controller->getProducts();
       </div>
    <?php endforeach; ?>
 <?php endif; ?>
-
 <section class="add-products">
    <form action="" method="POST" enctype="multipart/form-data">
       <h3>ДОДАТИ НОВИЙ ТОВАР</h3>
@@ -66,13 +58,12 @@ $products = $controller->getProducts();
       <input type="submit" name="add_product" value="Додати товар" class="btn">
    </form>
 </section>
-
 <section class="show-products">
    <div class="box-container">
       <?php if (!empty($products)): ?>
          <?php foreach ($products as $p): ?>
             <div class="box">
-               <div class="price">₴<?= htmlspecialchars($p['price']) ?>/-</div>
+               <div class="price">₴<?= htmlspecialchars($p['price']) ?></div>
                <img class="image" src="../uploaded_img/<?= htmlspecialchars($p['image']) ?>" alt="">
                <div class="name"><?= htmlspecialchars($p['name']) ?></div>
                <a href="admin_edit_book.php?edit_id=<?= $p['id'] ?>" class="option-btn">Оновити</a>

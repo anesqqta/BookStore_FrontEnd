@@ -1,5 +1,4 @@
 <?php
-// Відображення повідомлень (єдина перевірка, щоб не дублювалося)
 if (!empty($message)) {
     foreach ($message as $msg) {
         echo '
@@ -10,14 +9,12 @@ if (!empty($message)) {
     }
 }
 ?>
-
 <header class="header">
     <div class="flex">
         <a href="admin_dashboard.php" class="logo">
             <span class="logo-top">BookStore</span>
             <span class="logo-bottom">AdminPanel</span>
         </a>
-
         <nav class="navbar">
             <a href="admin_dashboard.php">Головна</a>
             <a href="admin_products.php">Товари</a>
@@ -25,12 +22,10 @@ if (!empty($message)) {
             <a href="admin_users.php">Користувачі</a>
             <a href="admin_contacts.php">Повідомлення</a>
         </nav>
-
         <div class="icons">
             <div id="menu-btn" class="fas fa-bars"></div>
             <div id="user-btn" class="fas fa-user"></div>
         </div>
-
         <div class="account-box">
             <p>Ім’я користувача: <span><?php echo htmlspecialchars($_SESSION['admin_name'] ?? ''); ?></span></p>
             <p>Email: <span><?php echo htmlspecialchars($_SESSION['admin_email'] ?? ''); ?></span></p>

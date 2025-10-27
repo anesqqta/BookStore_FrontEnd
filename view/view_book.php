@@ -2,33 +2,27 @@
 require_once '../../BookStore_BackEnd/controllers/BookController.php';
 require_once '../../BookStore_BackEnd/controllers/CartController.php';
 require_once '../../BookStore_BackEnd/controllers/WishlistController.php';
-
 session_start();
+
 $user_id = $_SESSION['user_id'] ?? null;
 if (!$user_id) {
     header('location:login.php');
     exit;
 }
-
 $bookController = new BookController();
 $cartController = new CartController();
 $wishlistController = new WishlistController();
 
 $message = [];
 
-// --- Додавання до списку бажаного ---
 if (isset($_POST['add_to_wishlist'])) {
     $wishlistController->addToWishlist($user_id, $_POST);
     $message[] = 'Товар додано до списку бажаного';
 }
-
-// --- Додавання до кошика ---
 if (isset($_POST['add_to_cart'])) {
     $cartController->addToCart($user_id, $_POST);
     $message[] = 'Товар додано до кошика';
 }
-
-// --- Отримання даних книги ---
 $book = null;
 if (isset($_GET['book_id'])) {
     $book_id = $_GET['book_id'];
@@ -44,21 +38,18 @@ if (isset($_GET['book_id'])) {
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-
 <?php include 'includes/header.php'; ?>
 
 <section class="heading">
     <h3>ДЕТАЛЬНА СТОРІНКА КНИГИ</h3>
     <p><a href="home.php">головна</a> / книга</p>
 </section>
-
 <section class="book-view">
 <?php if ($book): ?>
     <div class="book-wrapper">
         <div class="book-image">
             <img src="../uploaded_img/<?= htmlspecialchars($book['image']); ?>" alt="">
         </div>
-
         <div class="book-info">
             <h2><?= htmlspecialchars($book['name']); ?></h2>
             <p><span class="label">Жанр:</span> <span class="value"><?= htmlspecialchars($book['genre']); ?></span></p>
@@ -67,7 +58,6 @@ if (isset($_GET['book_id'])) {
             <p><span class="label">Мова:</span> <span class="value"><?= htmlspecialchars($book['language']); ?></span></p>
             <p><span class="label">Кількість сторінок:</span> <span class="value"><?= htmlspecialchars($book['number_pages']); ?></span></p>
         </div>
-
         <div class="book-price-box">
             <p class="price">₴<?= htmlspecialchars($book['price']); ?></p>
             <form action="" method="POST">
@@ -81,7 +71,6 @@ if (isset($_GET['book_id'])) {
             </form>
         </div>
     </div>
-
     <div class="book-description">
         <p><?= nl2br(htmlspecialchars($book['primary_description'])); ?></p>
         <p><?= nl2br(htmlspecialchars($book['secondary_description'])); ?></p>
@@ -92,7 +81,6 @@ if (isset($_GET['book_id'])) {
 </section>
 
 <?php include 'includes/footer.php'; ?>
-
 <script src="../assets/js/script.js"></script>
 </body>
 </html>

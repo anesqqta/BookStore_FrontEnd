@@ -7,18 +7,14 @@ if (!isset($admin_id)) {
     header('location:login.php');
     exit;
 }
-
 $controller = new AdminUserController();
 $message = [];
 
-// 🔹 Видалення користувача
 if (isset($_GET['delete'])) {
     $controller->deleteUser($_GET['delete']);
     header('location:admin_users.php');
     exit;
 }
-
-// 🔹 Отримання всіх користувачів
 $users = $controller->getUsers();
 ?>
 <!DOCTYPE html>
@@ -31,12 +27,10 @@ $users = $controller->getUsers();
    <link rel="stylesheet" href="../assets/css/admin_style.css">
 </head>
 <body>
-
 <?php include 'admin_header.php'; ?>
 
 <section class="users">
    <h1 class="title">Облікові записи користувачів</h1>
-
    <div class="box-container">
       <?php if (mysqli_num_rows($users) > 0): ?>
          <?php while ($fetch_users = mysqli_fetch_assoc($users)): ?>

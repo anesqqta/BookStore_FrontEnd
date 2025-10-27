@@ -7,7 +7,6 @@ if (!$user_id) {
     header('location:login.php');
     exit;
 }
-
 $controller = new UserController();
 $user = $controller->getUserById($user_id);
 $message = [];
@@ -33,20 +32,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
     <h3>РЕДАГУВАННЯ ПРОФІЛЮ</h3>
     <p><a href="home.php">головна</a> / профіль</p>
 </section>
-
 <section class="edit-profile">
     <div class="profile-container">
         <div class="profile-left">
             <img src="../assets/images/profile.jpg" alt="user">
             <h2><?= htmlspecialchars($user['name']); ?></h2>
         </div>
-
         <form action="" method="POST" class="profile-form">
             <div class="flex">
                 <div class="profile-info">
                     <span>Ваше ім’я:</span>
                     <input type="text" name="name" value="<?= htmlspecialchars($user['name']); ?>" required>
-
                     <span>Ваша електронна пошта:</span>
                     <input type="email" name="email" value="<?= htmlspecialchars($user['email']); ?>" required>
                 </div>

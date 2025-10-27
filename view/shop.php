@@ -2,11 +2,9 @@
 require_once '../../BookStore_BackEnd/controllers/BookController.php';
 require_once '../../BookStore_BackEnd/controllers/CartController.php';
 require_once '../../BookStore_BackEnd/controllers/WishlistController.php';
-
 $bookController = new BookController();
 $cartController = new CartController();
 $wishlistController = new WishlistController();
-
 session_start();
 
 $user_id = $_SESSION['user_id'] ?? null;
@@ -14,24 +12,18 @@ if (!$user_id) {
    header('location:login.php');
    exit;
 }
-
 if (isset($_POST['add_to_cart'])) {
    $message[] = $cartController->addToCart($user_id, $_POST);
 }
-
 if (isset($_POST['add_to_wishlist'])) {
    $message[] = $wishlistController->addToWishlist($user_id, $_POST);
 }
-
-// Отримуємо фільтри з GET-запиту
 $filters = [
     'genre' => $_GET['genre'] ?? '',
     'year' => $_GET['year'] ?? '',
     'price_min' => $_GET['price_min'] ?? '',
     'price_max' => $_GET['price_max'] ?? ''
 ];
-
-// Отримуємо книги
 $books = $bookController->getBooks($filters);
 ?>
 <!DOCTYPE html>
@@ -43,14 +35,12 @@ $books = $bookController->getBooks($filters);
    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-
 <?php include 'includes/header.php'; ?>
 
 <section class="heading">
     <h3>НАШ МАГАЗИН</h3>
     <p><a href="home.php">головна</a> / магазин</p>
 </section>
-
 <section class="products">
    <div class="products-header">
       <h1 class="title">ТОВАРИ</h1>
@@ -87,7 +77,6 @@ $books = $bookController->getBooks($filters);
          </form>
       </div>
    </div>
-
    <div class="box-container">
       <?php
       if ($books && mysqli_num_rows($books) > 0) {
@@ -95,7 +84,7 @@ $books = $bookController->getBooks($filters);
       ?>
       <form action="" method="POST" class="box">
          <a href="view_book.php?book_id=<?= $book['id']; ?>" class="fas fa-eye"></a>
-         <div class="price">₴<?= $book['price']; ?>/-</div>
+         <div class="price">₴<?= $book['price']; ?></div>
          <img src="../uploaded_img/<?= $book['image']; ?>" alt="" class="image">
          <div class="name"><?= $book['name']; ?></div>
          <input type="number" name="product_quantity" value="1" min="1" class="qty">

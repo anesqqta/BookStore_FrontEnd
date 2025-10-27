@@ -6,17 +6,13 @@ if (!isset($_SESSION['admin_id'])) {
     header('location:login.php');
     exit;
 }
-
 $controller = new AdminProductController();
 $message = [];
 
-// Якщо оновлюємо
 if (isset($_POST['update_product'])) {
     $response = $controller->updateProduct($_POST, $_FILES);
     $message[] = $response;
 }
-
-// Отримуємо дані товару
 $update_id = $_GET['edit_id'] ?? null;
 $product = $update_id ? $controller->getProductById($update_id) : null;
 ?>
@@ -38,7 +34,6 @@ $product = $update_id ? $controller->getProductById($update_id) : null;
       <img src="../uploaded_img/<?php echo htmlspecialchars($product['image']); ?>" class="image" alt="">
       <input type="hidden" name="update_p_id" value="<?php echo $product['id']; ?>">
       <input type="hidden" name="update_p_image" value="<?php echo $product['image']; ?>">
-
       <input type="text" class="box" name="name" required value="<?php echo htmlspecialchars($product['name']); ?>">
       <input type="number" class="box" name="price" min="0" required value="<?php echo $product['price']; ?>">
       <input type="text" class="box" name="genre" required value="<?php echo htmlspecialchars($product['genre']); ?>">
@@ -49,7 +44,6 @@ $product = $update_id ? $controller->getProductById($update_id) : null;
       <textarea name="primary_description" class="box" required><?php echo htmlspecialchars($product['primary_description']); ?></textarea>
       <textarea name="secondary_description" class="box" required><?php echo htmlspecialchars($product['secondary_description']); ?></textarea>
       <input type="file" accept="image/*" class="box" name="image">
-
       <input type="submit" name="update_product" value="Оновити товар" class="btn">
       <a href="admin_products.php" class="option-btn">Повернутись</a>
    </form>

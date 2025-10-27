@@ -7,11 +7,9 @@ if (!$user_id) {
     header('location:login.php');
     exit;
 }
-
 $message = [];
 $controller = new ContactController();
 
-// Обробка форми
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['send'])) {
     $response = $controller->sendMessage($user_id, $_POST);
     $message[] = $response;
@@ -34,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['send'])) {
     <h3>Зв'язатись з нами</h3>
     <p><a href="home.php">головна</a> / контакти</p>
 </section>
-
 <section class="contact">
     <form action="" method="POST">
         <h3>Надіслати нам повідомлення!</h3>

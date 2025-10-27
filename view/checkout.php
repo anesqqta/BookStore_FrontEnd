@@ -2,7 +2,6 @@
 require_once '../../BookStore_BackEnd/controllers/CartController.php';
 require_once '../../BookStore_BackEnd/controllers/OrderController.php';
 require_once '../../BookStore_BackEnd/config/Database.php';
-
 session_start();
 
 $user_id = $_SESSION['user_id'] ?? null;
@@ -10,14 +9,12 @@ if (!$user_id) {
     header('location:login.php');
     exit;
 }
-
 $cartController = new CartController();
 $orderController = new OrderController();
 
 $database = new Database();
 $conn = $database->getConnection();
 
-// Оформлення замовлення
 if (isset($_POST['order'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $number = mysqli_real_escape_string($conn, $_POST['number']);
@@ -26,7 +23,6 @@ if (isset($_POST['order'])) {
     $address = mysqli_real_escape_string($conn, 'квартира № ' . $_POST['flat'] . ', ' . $_POST['street']);
     $placed_on = date('d-M-Y');
 
-    // Отримуємо товари з кошика
     $cart_items = $cartController->getUserCart($user_id);
     $cart_total = 0;
     $cart_products = [];
@@ -37,7 +33,6 @@ if (isset($_POST['order'])) {
             $cart_total += ($item['price'] * $item['quantity']);
         }
     }
-
     if ($cart_total == 0) {
         $message[] = 'Ваш кошик порожній!';
     } else {
@@ -52,7 +47,6 @@ if (isset($_POST['order'])) {
             'total_price' => $cart_total,
             'placed_on' => $placed_on
         ];
-
         $response = $orderController->placeOrder($orderData);
 
         if ($response === true) {
@@ -73,19 +67,16 @@ if (isset($_POST['order'])) {
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-
 <?php include 'includes/header.php'; ?>
 
 <section class="heading">
     <h3>ОФОРМЛЕННЯ ЗАМОВЛЕННЯ</h3>
     <p><a href="home.php">головна</a> / оформлення замовлення</p>
 </section>
-
 <section class="display-order">
     <?php
     $grand_total = 0;
     $cart_items = $cartController->getUserCart($user_id);
-
     if ($cart_items && $cart_items->num_rows > 0) {
         while ($item = $cart_items->fetch_assoc()) {
             $total_price = $item['price'] * $item['quantity'];
@@ -96,9 +87,8 @@ if (isset($_POST['order'])) {
         echo '<p class="empty">Ваш кошик порожній</p>';
     }
     ?>
-    <div class="grand-total">Загальна сума: <span>₴<?php echo $grand_total; ?>/-</span></div>
+    <div class="grand-total">Загальна сума: <span>₴<?php echo $grand_total; ?></span></div>
 </section>
-
 <section class="checkout">
     <form action="" method="POST">
         <h3>ОФОРМІТЬ ВАШЕ ЗАМОВЛЕННЯ</h3>
@@ -140,7 +130,6 @@ if (isset($_POST['order'])) {
 </section>
 
 <?php include 'includes/footer.php'; ?>
-
 <script src="../assets/js/script.js"></script>
 </body>
 </html>

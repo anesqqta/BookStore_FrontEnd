@@ -7,17 +7,13 @@ if (!$admin_id) {
    header('location:login.php');
    exit;
 }
-
 $controller = new AdminContactController();
 
-// 🔹 Видалення повідомлення
 if (isset($_GET['delete'])) {
    $controller->deleteMessage($_GET['delete']);
    header('location:admin_contacts.php');
    exit;
 }
-
-// 🔹 Отримання всіх повідомлень
 $messages = $controller->getMessages();
 ?>
 <!DOCTYPE html>
@@ -30,13 +26,11 @@ $messages = $controller->getMessages();
    <link rel="stylesheet" href="../assets/css/admin_style.css">
 </head>
 <body>
-
 <?php include 'admin_header.php'; ?>
 
 <section class="messages">
    <h1 class="title">ПОВІДОМЛЕННЯ КОРИСТУВАЧІВ</h1>
    <div class="box-container">
-
       <?php if (mysqli_num_rows($messages) > 0): ?>
          <?php while ($fetch_message = mysqli_fetch_assoc($messages)): ?>
             <div class="box">
@@ -53,7 +47,6 @@ $messages = $controller->getMessages();
       <?php else: ?>
          <p class="empty">У вас немає нових повідомлень!</p>
       <?php endif; ?>
-
    </div>
 </section>
 

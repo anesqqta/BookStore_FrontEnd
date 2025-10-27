@@ -8,7 +8,6 @@ if (!$user_id) {
     exit;
 }
 
-// ініціалізуємо контролер замовлень
 $orderController = new OrderController();
 $orders = $orderController->getUserOrders($user_id);
 ?>
@@ -27,7 +26,6 @@ $orders = $orderController->getUserOrders($user_id);
     <h3>ВАШІ ЗАМОВЛЕННЯ</h3>
     <p><a href="home.php">головна</a> / замовлення</p>
 </section>
-
 <section class="placed-orders">
     <h1 class="title">Розміщені замовлення</h1>
     <div class="box-container">
@@ -43,7 +41,7 @@ $orders = $orderController->getUserOrders($user_id);
             <p>Адреса: <span><?php echo $order['address']; ?></span></p>
             <p>Спосіб оплати: <span><?php echo $order['method']; ?></span></p>
             <p>Ваші замовлення: <span><?php echo $order['total_products']; ?></span></p>
-            <p>Загальна сума: <span>₴<?php echo $order['total_price']; ?>/-</span></p>
+            <p>Загальна сума: <span>₴<?php echo $order['total_price']; ?></span></p>
             <p>Статус оплати: 
                 <span style="color:<?php echo ($order['payment_status'] == 'pending') ? 'tomato' : 'green'; ?>">
                     <?php echo $order['payment_status']; ?>

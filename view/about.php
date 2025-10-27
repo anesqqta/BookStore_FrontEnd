@@ -1,16 +1,13 @@
 <?php
 require_once '../../BookStore_BackEnd/controllers/UserController.php';
-
 session_start();
 $user_id = $_SESSION['user_id'] ?? null;
 
-// 🔹 Перевірка авторизації
 if (!$user_id) {
     header('location: login.php');
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -22,14 +19,12 @@ if (!$user_id) {
    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-
 <?php include 'includes/header.php'; ?>
 
 <section class="heading">
     <h3>Про нас</h3>
     <p><a href="home.php">головна</a> / про</p>
 </section>
-
 <section class="about">
     <div class="flex">
         <div class="image">
@@ -41,7 +36,6 @@ if (!$user_id) {
             <a href="shop.php" class="btn-about">робити покупки зараз</a>
         </div>
     </div>
-
     <div class="flex">
         <div class="content">
             <h3>Що ми надаємо?</h3>
@@ -52,12 +46,10 @@ if (!$user_id) {
                 Ми прагнемо зробити процес купівлі книги простим, приємним і надихаючим, щоб кожен читач міг знайти свою історію.</p>
             <a href="contact.php" class="btn-about">зв'яжіться з нами</a>
         </div>
-        
         <div class="image">
             <img src="../assets/images/about2.jpg" alt="">
         </div>
     </div>
-
     <div class="flex">
         <div class="image">
             <img src="../assets/images/about3.jpg" alt="">
@@ -69,7 +61,6 @@ if (!$user_id) {
         </div>
     </div>
 </section>
-
 <section class="reviews" id="reviews">
     <h1 class="title">Відгуки клієнтів</h1>
     <div class="box-container">
@@ -82,7 +73,6 @@ if (!$user_id) {
             ["pic-5.png", "Великий вибір книжок, приємні ціни та швидка доставка. Усе прийшло в чудовому стані.", "Ярослав Семенюк"],
             ["pic-6.png", "Затишний куточок для всіх, хто любить читати. Книги завжди приходять у чудовому стані.", "Оксана Матишейко"]
         ];
-
         foreach ($reviews as $review) {
             echo '
             <div class="box">

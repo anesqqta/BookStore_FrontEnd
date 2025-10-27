@@ -2,7 +2,6 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
 require_once __DIR__ . '/../../../BookStore_BackEnd/controllers/WishlistController.php';
 require_once __DIR__ . '/../../../BookStore_BackEnd/controllers/CartController.php';
 
@@ -14,11 +13,9 @@ $cartCount = 0;
 if ($user_id) {
     $wishlistController = new WishlistController();
     $cartController = new CartController();
-
     $wishlistCount = $wishlistController->getWishlistCount($user_id);
     $cartCount = $cartController->getCartCount($user_id);
 }
-
 if(isset($message)){
    foreach($message as $msg){
       echo '
@@ -30,7 +27,6 @@ if(isset($message)){
    }
 }
 ?>
-
 <header class="header">
     <div class="flex">
         <a href="home.php" class="logo">BookStore</a>
@@ -53,7 +49,6 @@ if(isset($message)){
                 </li>
             </ul>
         </nav>
-
         <div class="icons"> 
             <div id="menu-btn" class="fas fa-bars"></div>
             <a href="search_page.php" class="fas fa-search"></a>
