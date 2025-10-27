@@ -22,7 +22,7 @@
    text-decoration: none;
    transition:all .2s linear;
 }
-.home .content h3, .title, .home-contact .content h3, .heading h3, .about .flex .content h3, .contact form h3, .checkout form h3, .form-container form h3, .book-info h2{
+.home .content h3, .title, .home-contact .content h3, .heading h3, .about .flex .content h3, .contact form h3, .checkout form h3, .form-container form h3, .book-info h2, .profile-left h2{
   font-family: "Playfair Display", serif;
   margin:0; padding:0;
   box-sizing: border-box;
@@ -752,7 +752,6 @@ section{
 .profile-left h2 {
    font-size: 2.4rem;
    color: var(--brown);
-   font-family: "Playfair Display", serif;
 }
 
 .profile-info {
@@ -794,6 +793,8 @@ section{
 .profile-right ul li a:hover {
    text-decoration: underline;
 }
+
+
 
 .logout-btn {
    display: inline-block;
