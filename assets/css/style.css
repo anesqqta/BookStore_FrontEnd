@@ -720,7 +720,6 @@ section{
    background-color: var(--lightbeige);
    padding: 5rem 2rem;
 }
-
 .profile-container {
    max-width: 1100px;
    margin: 0 auto;
@@ -734,11 +733,9 @@ section{
    gap: 2rem;
    align-items: start;
 }
-
 .profile-left {
    text-align: center;
 }
-
 .profile-left img {
    width: 120px;
    height: 120px;
@@ -748,12 +745,10 @@ section{
    margin: 0 auto 1.5rem;
    object-fit: cover;
 }
-
 .profile-left h2 {
    font-size: 2.4rem;
    color: var(--brown);
 }
-
 .profile-info {
    background-color: var(--white);
    border-radius: .5rem;
@@ -763,39 +758,30 @@ section{
    color: var(--brown);
    line-height: 2;
 }
-
 .profile-info span {
    display: block;
    color: var(--light-gray);
 }
-
 .profile-right ul {
    list-style: none;
    padding: 0;
 }
-
 .profile-right ul li {
    font-size: 1.6rem;
    color: var(--brown);
    margin: 1.2rem 0;
 }
-
 .profile-right ul li i {
    color: var(--brown);
    margin-right: .8rem;
 }
-
 .profile-right ul li a {
    color: var(--light-gray);
    text-decoration: none;
 }
-
 .profile-right ul li a:hover {
    text-decoration: underline;
 }
-
-
-
 .logout-btn {
    display: inline-block;
    margin-top: 2rem;
@@ -807,12 +793,10 @@ section{
    cursor: pointer;
    transition: .3s;
 }
-
 .logout-btn:hover {
    background-color: var(--brown);
    color: var(--light-gray);
 }
-
 .wishlist .box-container{
    max-width: 1200px;
    margin:0 auto;
@@ -1120,7 +1104,6 @@ section{
 .footer .credit span{
    color:var(--dark-gray);
 }
-
 @media (max-width:991px){
    html{
       font-size: 55%;

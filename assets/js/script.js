@@ -1,11 +1,10 @@
 let navbar = document.querySelector('.header .flex .navbar');
-let userBox = document.querySelector('.header .flex .user-box'); // додали userBox
+let userBox = document.querySelector('.header .flex .user-box'); 
 
 document.querySelector('#menu-btn').onclick = () => {
     if (navbar) navbar.classList.toggle('active');
     if (userBox) userBox.classList.remove('active');
 }
-
 window.onscroll = () => {
     if (userBox) userBox.classList.remove('active');
     if (navbar) navbar.classList.remove('active');
@@ -16,15 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (toggleBtn && dropdown) {
         toggleBtn.addEventListener('click', () => {
-            // Перемикаємо display між 'none' і 'block'
             if(dropdown.style.display === 'block') {
                 dropdown.style.display = 'none';
             } else {
                 dropdown.style.display = 'block';
             }
         });
-
-        // Закриття при кліку поза блоком
         document.addEventListener('click', (e) => {
             if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
                 dropdown.style.display = 'none';
@@ -32,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-// profile.js
 document.addEventListener("DOMContentLoaded", () => {
    console.log("Profile page loaded");
 });
