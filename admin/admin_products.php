@@ -1,7 +1,6 @@
 <?php
 require_once '../../BookStore_BackEnd/controllers/AdminProductController.php';
 session_start();
-
 $admin_id = $_SESSION['admin_id'] ?? null;
 if (!$admin_id) {
     header('location:../view/login.php');
@@ -9,7 +8,6 @@ if (!$admin_id) {
 }
 $controller = new AdminProductController();
 $message = [];
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_product'])) {
     $response = $controller->addProduct($_POST, $_FILES);
     $message[] = $response;

@@ -12,7 +12,6 @@ if (!$user_id) {
 $bookController = new BookController();
 $cartController = new CartController();
 $wishlistController = new WishlistController();
-
 $message = [];
 
 if (isset($_POST['add_to_wishlist'])) {

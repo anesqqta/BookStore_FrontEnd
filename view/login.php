@@ -1,7 +1,6 @@
 <?php
 require_once '../../BookStore_BackEnd/controllers/UserController.php';
 session_start();
-
 $userController = new UserController();
 
 if (isset($_POST['submit'])) {

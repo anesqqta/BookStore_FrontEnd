@@ -1,7 +1,6 @@
 <?php
 require_once '../../BookStore_BackEnd/controllers/AdminOrderController.php';
 session_start();
-
 $admin_id = $_SESSION['admin_id'];
 if (!isset($admin_id)) {
     header('location:login.php');
@@ -10,7 +9,6 @@ if (!isset($admin_id)) {
 
 $controller = new AdminOrderController();
 $message = [];
-
 if (isset($_POST['update_order'])) {
     $controller->updateOrderStatus($_POST['order_id'], $_POST['update_payment']);
     $message[] = 'Статус оплати оновлено!';

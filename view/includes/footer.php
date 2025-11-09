@@ -28,5 +28,6 @@
             <a href="https://www.tiktok.com/@ilvuvldk?_t=ZM-8tVNLOjq8jF&_r=1"><i class="fab fa-tiktok"></i>TikTok</a>
         </div>
     </div>
+    
     <div class="credit">&copy; copyright @ <?php echo date('Y'); ?> by <span>Anastasiia Semeniuk</span> </div>
 </section>

@@ -6,7 +6,6 @@ require_once __DIR__ . '/../../../BookStore_BackEnd/controllers/WishlistControll
 require_once __DIR__ . '/../../../BookStore_BackEnd/controllers/CartController.php';
 
 $user_id = $_SESSION['user_id'] ?? null;
-
 $wishlistCount = 0;
 $cartCount = 0;
 

@@ -6,7 +6,6 @@ $bookController = new BookController();
 $cartController = new CartController();
 $wishlistController = new WishlistController();
 session_start();
-
 $user_id = $_SESSION['user_id'] ?? null;
 if (!$user_id) {
    header('location:login.php');

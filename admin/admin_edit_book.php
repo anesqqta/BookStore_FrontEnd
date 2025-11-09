@@ -1,14 +1,12 @@
 <?php
 require_once '../../BookStore_BackEnd/controllers/AdminProductController.php';
 session_start();
-
 if (!isset($_SESSION['admin_id'])) {
     header('location:login.php');
     exit;
 }
 $controller = new AdminProductController();
 $message = [];
-
 if (isset($_POST['update_product'])) {
     $response = $controller->updateProduct($_POST, $_FILES);
     $message[] = $response;

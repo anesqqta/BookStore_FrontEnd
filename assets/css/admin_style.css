@@ -473,7 +473,7 @@ section{
 .messages .box-container .box p span{
    color:var(--brown);
 }
-/* media */
+
 @media (max-width:991px){
    html{
       font-size: 55%;

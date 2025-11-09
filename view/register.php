@@ -3,7 +3,6 @@ require_once '../../BookStore_BackEnd/controllers/UserController.php';
 
 $userController = new UserController();
 $message = [];
-
 if (isset($_POST['submit'])) {
     $name = $_POST['name'] ?? '';
     $email = $_POST['email'] ?? '';

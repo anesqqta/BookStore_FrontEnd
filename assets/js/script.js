@@ -5,10 +5,12 @@ document.querySelector('#menu-btn').onclick = () => {
     if (navbar) navbar.classList.toggle('active');
     if (userBox) userBox.classList.remove('active');
 }
+
 window.onscroll = () => {
     if (userBox) userBox.classList.remove('active');
     if (navbar) navbar.classList.remove('active');
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.querySelector('.filter-toggle');
     const dropdown = document.querySelector('.filter-dropdown');
@@ -28,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 document.addEventListener("DOMContentLoaded", () => {
    console.log("Profile page loaded");
 });

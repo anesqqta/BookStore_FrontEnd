@@ -9,7 +9,6 @@ if (!$user_id) {
     header('location:login.php');
     exit;
 }
-
 $searchController = new SearchController();
 $cartController = new CartController();
 $wishlistController = new WishlistController();

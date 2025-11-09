@@ -1,7 +1,6 @@
 <?php
 require_once '../../BookStore_BackEnd/controllers/UserController.php';
 session_start();
-
 $user_id = $_SESSION['user_id'] ?? null;
 if (!$user_id) {
     header('location:login.php');

@@ -7,7 +7,6 @@ if (!$user_id) {
     header('location:login.php');
     exit;
 }
-
 $orderController = new OrderController();
 $orders = $orderController->getUserOrders($user_id);
 ?>

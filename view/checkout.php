@@ -3,7 +3,6 @@ require_once '../../BookStore_BackEnd/controllers/CartController.php';
 require_once '../../BookStore_BackEnd/controllers/OrderController.php';
 require_once '../../BookStore_BackEnd/config/Database.php';
 session_start();
-
 $user_id = $_SESSION['user_id'] ?? null;
 if (!$user_id) {
     header('location:login.php');

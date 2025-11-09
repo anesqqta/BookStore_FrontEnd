@@ -9,6 +9,7 @@ if (!empty($message)) {
     }
 }
 ?>
+
 <header class="header">
     <div class="flex">
         <a href="admin_dashboard.php" class="logo">
