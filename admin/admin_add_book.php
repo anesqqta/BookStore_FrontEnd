@@ -32,7 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_product'])) {
       </div>
    <?php endforeach; ?>
 <?php endif; ?>
-
+<section class="heading">
+    <h3>Додати товар</h3>
+    <p><a href="admin_products.php">Всі товари</a> / Додати</p>
+</section>
 <section class="add-products">
    <form action="" method="POST" enctype="multipart/form-data">
       <h3>ДОДАТИ НОВИЙ ТОВАР</h3>

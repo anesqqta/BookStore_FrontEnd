@@ -23,6 +23,32 @@
    text-decoration: none;
    transition:all .2s linear;
 }
+.heading{
+   display: flex;
+   flex-flow: column;
+   align-items: center;
+   justify-content: center;
+   gap:1rem;
+   background-color: var(--brown);
+   text-align: center;
+   min-height: 25vh;
+}
+.heading h3{
+   font-family: "Playfair Display", serif;
+   font-size: 5.5rem;
+   color:var(--lightbeige);
+   text-transform: uppercase;
+}
+.heading p{
+   font-size: 2.5rem;
+   color:var(--dark-gray);
+}
+.heading p a{
+   color:var(--light-beige);
+}
+.heading p a:hover{
+   text-decoration: underline;
+}
 .header .flex .logo .logo-bottom, .title, .add-products form h3 {
   font-family: "Playfair Display", serif;
   margin:0; padding:0;
@@ -93,7 +119,7 @@ section{
    border-radius: .5rem;
    margin-top: 1rem;
    font-size: 1.8rem;
-   color:var(--light-gray);
+   color:var(--brown);
    cursor: pointer;
    padding:1rem 3rem;
    text-transform: none;

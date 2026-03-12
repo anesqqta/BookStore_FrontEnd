@@ -10,17 +10,14 @@ if (!$admin_id) {
 $controller = new AdminProductController();
 $message = [];
 
-// Видалення товару
 if (isset($_GET['delete'])) {
     $controller->deleteProduct($_GET['delete']);
     header('location:admin_products.php');
     exit;
 }
 
-// Отримання товарів
 $products = $controller->getProducts();
 
-// Пошук та фільтр
 $search = $_GET['search'] ?? "";
 $genre_filter = $_GET['genre'] ?? "";
 
@@ -36,7 +33,6 @@ if ($genre_filter) {
     });
 }
 
-// Унікальні жанри для фільтру
 $genres = array_unique(array_column($controller->getProducts(), 'genre'));
 ?>
 <!DOCTYPE html>
@@ -51,7 +47,10 @@ $genres = array_unique(array_column($controller->getProducts(), 'genre'));
 </head>
 <body>
 <?php include 'admin_header.php'; ?>
-
+<section class="heading">
+    <h3>Товари</h3>
+    <p><a href="admin_dashboard.php">Головна</a> / товари</p>
+</section>
 <?php if (!empty($message)): ?>
     <?php foreach ($message as $msg): ?>
         <div class="message">
@@ -62,9 +61,6 @@ $genres = array_unique(array_column($controller->getProducts(), 'genre'));
 <?php endif; ?>
 
 <section class="show-products">
-    <h1 class="title">Товари</h1>
-
-    <!-- Панель пошуку та кнопка додати товар -->
     <form method="GET" class="prod-toolbar">
         <input
             type="text"
@@ -85,7 +81,6 @@ $genres = array_unique(array_column($controller->getProducts(), 'genre'));
 
         <button type="submit" class="btn">Застосувати</button>
 
-        <!-- Перехід на сторінку додавання товару -->
         <a href="admin_add_book.php" class="btn blue">+ Додати товар</a>
     </form>
 
@@ -111,7 +106,7 @@ $genres = array_unique(array_column($controller->getProducts(), 'genre'));
             <td><?= htmlspecialchars($p['name']) ?></td>
             <td>₴<?= htmlspecialchars($p['price']) ?></td>
             <td>
-                <a href="admin_edit_book.php?edit_id=<?= $p['id'] ?>" class="option-btn">Оновити</a>
+                <a href="admin_edit_book.php?edit_id=<?= $p['id'] ?>" class="option-btn">Редагувати</a>
                 <a href="admin_products.php?delete=<?= $p['id'] ?>" class="delete-btn" onclick="return confirm('Видалити цей товар?');">Видалити</a>
             </td>
         </tr>

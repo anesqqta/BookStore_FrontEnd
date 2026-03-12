@@ -25,7 +25,10 @@ $product = $update_id ? $controller->getProductById($update_id) : null;
 </head>
 <body>
 <?php include 'admin_header.php'; ?>
-
+<section class="heading">
+    <h3>Редагувати товар</h3>
+    <p><a href="admin_products.php">Всі товари</a> / Редагувати</p>
+</section>
 <section class="update-product">
 <?php if ($product): ?>
    <form action="" method="post" enctype="multipart/form-data">
