@@ -581,3 +581,67 @@ section{
         height: 2.5rem;
     }
 }
+
+/* === Панель пошуку товарів === */
+.prod-toolbar{
+   max-width: 1200px;
+   margin: 0 auto 2rem;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--white);
+   border: var(--border);
+   border-radius: .5rem;
+   padding: 1.5rem;
+   box-shadow: var(--box-shadow);
+}
+
+/* поле пошуку */
+.toolbar-input{
+   flex: 1 1 25rem;
+   padding: 1rem 1.2rem;
+   font-size: 1.6rem;
+   border: var(--border);
+   border-radius: .5rem;
+   background-color: var(--lightbeige);
+   color: var(--brown);
+}
+
+/* список категорій */
+.toolbar-select{
+   flex: 1 1 20rem;
+   padding: 1rem 1.2rem;
+   font-size: 1.6rem;
+   border: var(--border);
+   border-radius: .5rem;
+   background-color: var(--lightbeige);
+   color: var(--brown);
+   cursor: pointer;
+}
+
+/* чекбокс */
+.checkbox-label{
+   font-size: 1.6rem;
+   color: var(--brown);
+   display: flex;
+   align-items: center;
+   gap: .5rem;
+}
+
+/* кнопки в панелі */
+.prod-toolbar .btn{
+   margin-top: 0;
+}
+
+/* кнопка додати товар */
+.prod-toolbar .blue{
+   background-color: var(--beige);
+   color: var(--dark-gray);
+}
+
+.prod-toolbar .blue:hover{
+   background-color: var(--brown);
+   color: var(--white);
+}
