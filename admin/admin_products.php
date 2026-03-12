@@ -57,21 +57,35 @@ $products = $controller->getProducts();
    </form>
 </section>
 <section class="show-products">
-   <div class="box-container">
-      <?php if (!empty($products)): ?>
-         <?php foreach ($products as $p): ?>
-            <div class="box">
-               <div class="price">₴<?= htmlspecialchars($p['price']) ?></div>
-               <img class="image" src="../uploaded_img/<?= htmlspecialchars($p['image']) ?>" alt="">
-               <div class="name"><?= htmlspecialchars($p['name']) ?></div>
-               <a href="admin_edit_book.php?edit_id=<?= $p['id'] ?>" class="option-btn">Оновити</a>
-               <a href="admin_products.php?delete=<?= $p['id'] ?>" class="delete-btn" onclick="return confirm('Видалити цей товар?');">Видалити</a>
-            </div>
-         <?php endforeach; ?>
-      <?php else: ?>
-         <p class="empty">Поки що немає доданих товарів!</p>
-      <?php endif; ?>
-   </div>
+    <h1 class="title">Товари</h1>
+
+    <?php if (!empty($products)): ?>
+    <table class="products-table">
+        <tr>
+            <th>ID</th>
+            <th>Зображення</th>
+            <th>Назва</th>
+            <th>Ціна</th>
+            <th>Дії</th>
+        </tr>
+
+        <?php foreach ($products as $p): ?>
+        <tr>
+            <td><?= htmlspecialchars($p['id']) ?></td>
+            <td><img src="../uploaded_img/<?= htmlspecialchars($p['image']) ?>" class="product-image" alt=""></td>
+            <td><?= htmlspecialchars($p['name']) ?></td>
+            <td>₴<?= htmlspecialchars($p['price']) ?></td>
+            <td>
+                <a href="admin_edit_book.php?edit_id=<?= $p['id'] ?>" class="option-btn">Оновити</a>
+                <a href="admin_products.php?delete=<?= $p['id'] ?>" class="delete-btn" onclick="return confirm('Видалити цей товар?');">Видалити</a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+
+    </table>
+    <?php else: ?>
+        <p class="empty">Поки що немає доданих товарів!</p>
+    <?php endif; ?>
 </section>
 
 <script src="../assets/js/admin_script.js"></script>
