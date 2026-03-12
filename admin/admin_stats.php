@@ -1,196 +1,22 @@
 <?php
-require_once __DIR__ . '/../../BookStore_BackEnd/config/Database.php';
 
 session_start();
-
-$db = new Database();
-$conn = $db->getConnection();
-
-if (!$conn) {
-    die("Помилка підключення до бази даних");
-}
 
 if (!isset($_SESSION['admin_id'])) {
     header('location:../login.php');
     exit;
 }
 
-function h($value) {
-    return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
+require_once __DIR__.'/../../BookStore_BackEnd/controllers/AdminStatsController.php';
+
+$controller = new AdminStatsController();
+$data = $controller->getStats();
+
+extract($data);
+
+function h($value){
+    return htmlspecialchars((string)$value,ENT_QUOTES,'UTF-8');
 }
-
-function parseOrderItems($totalProducts, $productsMap) {
-    $result = [];
-
-    foreach ($productsMap as $productName => $productData) {
-        $escaped = preg_quote($productName, '/');
-
-        $patterns = [
-            '/'.$escaped.'\s*\((\d+)\)/ui',
-            '/'.$escaped.'\s*x\s*(\d+)/ui',
-            '/'.$escaped.'\s*-\s*(\d+)/ui',
-            '/'.$escaped.'.*?qty[: ](\d+)/ui',
-        ];
-
-        foreach ($patterns as $pattern) {
-            if (preg_match($pattern, $totalProducts, $matches)) {
-                $qty = (int)$matches[1];
-                if ($qty > 0) {
-                    $result[] = [
-                        'name' => $productName,
-                        'genre' => $productData['genre'],
-                        'qty' => $qty,
-                        'price' => (float)$productData['price']
-                    ];
-                }
-                break;
-            }
-        }
-    }
-
-    return $result;
-}
-
-$start_date = $_GET['start_date'] ?? '';
-$end_date = $_GET['end_date'] ?? '';
-$genre_filter = $_GET['genre'] ?? '';
-$search = trim($_GET['search'] ?? '');
-$payment_status = $_GET['payment_status'] ?? '';
-
-$products = [];
-$productQuery = mysqli_query($conn, "SELECT id, name, genre, price FROM products ORDER BY name ASC");
-while ($row = mysqli_fetch_assoc($productQuery)) {
-    $products[$row['name']] = $row;
-}
-
-$genres = [];
-$genreQuery = mysqli_query($conn, "SELECT DISTINCT genre FROM products WHERE genre <> '' ORDER BY genre ASC");
-while ($g = mysqli_fetch_assoc($genreQuery)) {
-    $genres[] = $g['genre'];
-}
-
-$orderSql = "SELECT * FROM orders WHERE 1";
-if ($payment_status !== '') {
-    $safe_status = mysqli_real_escape_string($conn, $payment_status);
-    $orderSql .= " AND payment_status = '{$safe_status}'";
-}
-$orderSql .= " ORDER BY id DESC";
-
-$orderRes = mysqli_query($conn, $orderSql);
-
-$latestOrders = [];
-
-$totalRevenue = 0;
-$totalOrders = 0;
-$totalUnitsSold = 0;
-
-$dailyRevenue = [];
-$dailyOrders = [];
-
-$bookSales = [];
-$genreSales = [];
-
-while ($order = mysqli_fetch_assoc($orderRes)) {
-    $orderDateRaw = $order['placed_on'] ?? '';
-    $orderTimestamp = strtotime($orderDateRaw);
-
-    if (!$orderTimestamp) {
-        continue;
-    }
-
-    $orderDate = date('Y-m-d', $orderTimestamp);
-
-    if ($start_date && $orderDate < $start_date) {
-        continue;
-    }
-
-    if ($end_date && $orderDate > $end_date) {
-        continue;
-    }
-
-    $matchedItems = parseOrderItems($order['total_products'], $products);
-
-    $orderMatchesFilters = true;
-
-    if ($genre_filter !== '' || $search !== '') {
-        $orderMatchesFilters = false;
-
-        foreach ($matchedItems as $item) {
-            $okGenre = ($genre_filter === '' || mb_strtolower($item['genre']) === mb_strtolower($genre_filter));
-            $okSearch = ($search === '' || mb_stripos($item['name'], $search) !== false);
-
-            if ($okGenre && $okSearch) {
-                $orderMatchesFilters = true;
-                break;
-            }
-        }
-    }
-
-    if (!$orderMatchesFilters) {
-        continue;
-    }
-
-    $latestOrders[] = $order;
-
-    $totalOrders++;
-    $orderRevenue = (float)$order['total_price'];
-    $totalRevenue += $orderRevenue;
-
-    if (!isset($dailyRevenue[$orderDate])) {
-        $dailyRevenue[$orderDate] = 0;
-    }
-
-    if (!isset($dailyOrders[$orderDate])) {
-        $dailyOrders[$orderDate] = 0;
-    }
-
-    $dailyRevenue[$orderDate] += $orderRevenue;
-    $dailyOrders[$orderDate]++;
-
-    foreach ($matchedItems as $item) {
-        $okGenre = ($genre_filter === '' || mb_strtolower($item['genre']) === mb_strtolower($genre_filter));
-        $okSearch = ($search === '' || mb_stripos($item['name'], $search) !== false);
-
-        if (!$okGenre || !$okSearch) {
-            continue;
-        }
-
-        $bookName = $item['name'];
-        $genreName = $item['genre'];
-        $qty = (int)$item['qty'];
-
-        $totalUnitsSold += $qty;
-
-        if (!isset($bookSales[$bookName])) {
-            $bookSales[$bookName] = 0;
-        }
-        $bookSales[$bookName] += $qty;
-
-        if (!isset($genreSales[$genreName])) {
-            $genreSales[$genreName] = 0;
-        }
-        $genreSales[$genreName] += $qty;
-    }
-}
-
-arsort($bookSales);
-$topBooks = array_slice($bookSales, 0, 5, true);
-
-$leastBooks = $bookSales;
-asort($leastBooks);
-$leastBooks = array_slice($leastBooks, 0, 5, true);
-
-arsort($genreSales);
-$topGenres = array_slice($genreSales, 0, 5, true);
-
-$leastGenres = $genreSales;
-asort($leastGenres);
-$leastGenres = array_slice($leastGenres, 0, 5, true);
-
-ksort($dailyRevenue);
-ksort($dailyOrders);
-
-$latestOrders = array_slice($latestOrders, 0, 15);
 ?>
 <!DOCTYPE html>
 <html lang="uk">
@@ -208,7 +34,7 @@ $latestOrders = array_slice($latestOrders, 0, 15);
 
 <section class="heading">
     <h3>Статистика</h3>
-    <p><a href="admin_page.php">адмін панель</a> / статистика</p>
+    <p><a href="admin_dashboard.php">Головна</a> / статистика</p>
 </section>
 
 <section class="stats-page">
