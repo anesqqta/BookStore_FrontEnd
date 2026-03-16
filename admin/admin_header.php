@@ -23,6 +23,7 @@ if (!empty($message)) {
             <a href="admin_users.php">Користувачі</a>
             <a href="admin_contacts.php">Повідомлення</a>
             <a href="admin_stats.php">Статистика</a>
+            <a href="admin_logs.php">Логи</a>
         </nav>
         <div class="icons">
             <div id="menu-btn" class="fas fa-bars"></div>
