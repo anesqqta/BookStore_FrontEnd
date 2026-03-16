@@ -34,7 +34,7 @@ function h($value){
 
 <section class="heading">
     <h3>Статистика</h3>
-    <p><a href="admin_dashboard.php">Головна</a> / статистика</p>
+    <p><a href="admin_dashboard.php">Головна</a> / Cтатистика</p>
 </section>
 
 <section class="stats-page">

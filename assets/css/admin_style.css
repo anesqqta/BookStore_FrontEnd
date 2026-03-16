@@ -275,7 +275,7 @@ section{
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
    gap:1.5rem;
-   align-items: flex-start;
+   align-items: stretch;
    max-width: 1200px;
    margin: 0 auto;
 }
@@ -286,6 +286,10 @@ section{
    box-shadow: var(--box-shadow);
    padding:2rem;
    border-radius: .5rem;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 .dashboard .box-container .box h3{
    font-size: 4.5rem;

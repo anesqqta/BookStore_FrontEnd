@@ -38,7 +38,7 @@ function h($value) {
 
 <section class="heading">
     <h3>Логи системи</h3>
-    <p><a href="admin_page.php">адмін панель</a> / логи</p>
+    <p><a href="admin_dashboard.php">Головна</a> / Логи</p>
 </section>
 
 <section class="logs-page">
