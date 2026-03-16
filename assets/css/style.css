@@ -373,6 +373,17 @@ section{
    width: 100%;
    object-fit: cover;
 }
+.products .box-container .box .name{
+   margin: 1rem 0;
+   font-size: 2rem;
+   color: var(--brown);
+   line-height: 1.4;
+   min-height: 5.6rem;
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+}
 .products .box-container .box .fa-eye, .products .box-container .box .price{
    position: absolute;
    top:1rem;
@@ -398,11 +409,6 @@ section{
 .products .box-container .box .fa-eye:hover{
    background-color: var(--brown);
    color:var(--white);
-}
-.products .box-container .box .name{
-   margin:1rem;
-   font-size: 2rem;
-   color:var(--brown);
 }
 .products .box-container .box .qty{
    width: 100%;
