@@ -54,7 +54,6 @@
   text-decoration: none;
   transition:all .2s linear;
 }
-
 *::selection{
    background-color: var(--dark-gray);
    color:var(--white);
@@ -133,7 +132,6 @@ section{
    font-size: 1.8rem;
    color:var(--dark-gray);
    cursor: pointer;
-   /*padding:1rem 3rem;*/
    text-transform: none;
 }
 .btn{
@@ -321,7 +319,6 @@ section{
 #menu-btn{
    display: none;
 }
-
 .home{
    min-height: 60vh;
    background:url(../images/home.jpg) no-repeat;
@@ -352,26 +349,30 @@ section{
 }
 .products .box-container{
    max-width: 1200px;
-   margin:0 auto;
+   margin: 0 auto;
    display: grid;
-   grid-template-columns: repeat(auto-fit, 33rem);
-   gap:1.5rem;
-   align-items: flex-start;
+   grid-template-columns: repeat(auto-fit, minmax(28rem, 33rem));
+   gap: 1.5rem;
+   align-items: stretch;
    justify-content: center;
 }
 .products .box-container .box{
    background-color: var(--white);
-   border:var(--border);
+   border: var(--border);
    box-shadow: var(--box-shadow);
    border-radius: .5rem;
-   padding:2rem;
+   padding: 2rem;
    text-align: center;
    position: relative;
+   display: flex;
+   flex-direction: column;
+   min-height: 62rem;
 }
 .products .box-container .box .image{
    height: 35rem;
    width: 100%;
-   object-fit: cover;
+   object-fit: contain;
+   margin-bottom: 1rem;
 }
 .products .box-container .box .name{
    margin: 1rem 0;
@@ -380,7 +381,6 @@ section{
    line-height: 1.4;
    min-height: 5.6rem;
    display: -webkit-box;
-   -webkit-line-clamp: 2;
    -webkit-box-orient: vertical;
    overflow: hidden;
 }
@@ -412,22 +412,26 @@ section{
 }
 .products .box-container .box .qty{
    width: 100%;
-   padding:1.2rem 1.4rem;
+   padding: 1.2rem 1.4rem;
    font-size: 1.8rem;
-   color:var(--brown);
-   border:var(--border);
+   color: var(--brown);
+   border: var(--border);
    border-radius: .5rem;
-   margin:.5rem 0;
+   margin: .5rem 0;
+   margin-top: auto;
 }
 .products .box-container .box .btn, .products .box-container .box .option-btn{
    width: 100%;
 }
-.products-header {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    margin-bottom: 2rem;
-    padding: 0 60rem;
+.products-header{
+   max-width: 1200px;
+   margin: 0 auto 2rem;
+   padding: 0 2rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 1rem;
+   flex-wrap: wrap;
 }
 .filter-wrapper {
     position: relative;
@@ -513,7 +517,7 @@ section{
    margin: .5rem 0;
 }
 .book-info .label {
-   color: var(--ligth-gray);
+   color: var(--light-gray);
 }
 .book-info .value {
    color: var(--brown);
@@ -1109,62 +1113,4 @@ section{
 }
 .footer .credit span{
    color:var(--dark-gray);
-}
-
-@media (max-width:991px){
-   html{
-      font-size: 55%;
-   }
-}
-@media (max-width: 850px) {
-   .profile-container {
-      grid-template-columns: 1fr;
-      text-align: center;
-   }
-}
-@media (max-width:768px){
-   #menu-btn{
-      display: inline-block;
-   }
-   .header .flex{
-      padding:2rem;
-   }
-   .header .flex .navbar{
-      position: absolute;
-      top:99%; left:0; right:0;
-      background-color: var(--white);
-      border-top: var(--border);
-      border-bottom: var(--border);
-      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-   }
-   .header .flex .navbar.active{
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-   }
-   .header .flex .navbar ul li{
-      width: 100%;
-      padding:.5rem;
-   }
-   .header .flex .navbar ul li ul{
-      position: static;
-      width: 100%;
-      animation: none;
-      background-color: var(--lightbeige);
-   }
-   .header .flex .navbar ul li ul li{
-      padding-left: 2rem;
-   }
-   .home .content h3{
-      font-size: 3.5rem;
-   }
-}
-@media (max-width:450px){
-   html{
-      font-size: 50%;
-   }
-   .heading h3{
-      font-size: 4rem;
-   }
-   .title{
-      font-size: 3rem;
-   }
 }

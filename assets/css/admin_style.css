@@ -827,595 +827,412 @@ section{
    color: var(--light-gray);
 }
 
-
-
-
-
-
-
-
-
-
 @media (max-width: 1200px){
-   .header .flex,
-   .dashboard .box-container,
-   .products-table,
-   .show-products .box-container,
-   .placed-orders .box-container,
-   .users .box-container,
-   .messages .box-container,
-   .prod-toolbar,
-   .stats-page,
-   .logs-page{
+   .header .flex, .dashboard .box-container, .products-table, .show-products .box-container, .placed-orders .box-container, .users .box-container, .messages .box-container, .prod-toolbar, .stats-page, .logs-page{
       max-width: 100%;
    }
-
-   .stats-page,
-   .logs-page{
+   .stats-page, .logs-page{
       padding: 2rem 1.5rem;
    }
-
-   .products-table,
-   .db-table{
+   .products-table, .db-table{
       display: block;
       overflow-x: auto;
       white-space: nowrap;
    }
 }
-
 @media (max-width: 991px){
    html{
       font-size: 55%;
    }
-
    section{
       padding: 2.5rem 1.5rem;
    }
-
    .heading{
       min-height: 22vh;
       padding: 3rem 1.5rem;
    }
-
    .heading h3{
       font-size: 4.4rem;
    }
-
    .heading p{
       font-size: 2rem;
    }
-
    .header .flex{
       padding: 1.8rem 1.5rem;
    }
-
    .header .flex .navbar a{
       font-size: 1.8rem;
       margin: 0 .8rem;
    }
-
    .header .flex .icons div{
       font-size: 2.3rem;
       margin-left: 1.2rem;
    }
-
    .dashboard .box-container{
       grid-template-columns: repeat(2, minmax(26rem, 1fr));
    }
-
    .show-products .box-container{
       grid-template-columns: repeat(2, minmax(28rem, 1fr));
    }
-
-   .placed-orders .box-container,
-   .users .box-container,
-   .messages .box-container{
+   .placed-orders .box-container, .users .box-container, .messages .box-container{
       grid-template-columns: repeat(2, minmax(28rem, 1fr));
    }
-
    .chart-box{
       min-height: 32rem;
    }
-
    .chart-box canvas{
       height: 25rem !important;
    }
-
    .stats-cards{
       grid-template-columns: repeat(2, minmax(22rem, 1fr));
    }
-
    .charts-grid{
       grid-template-columns: 1fr;
    }
-
-   .products-table th,
-   .products-table td,
-   .db-table th,
-   .db-table td{
+   .products-table th, .products-table td, .db-table th, .db-table td{
       padding: .9rem 1rem;
       font-size: 1.4rem;
    }
 }
-
 @media (max-width: 768px){
    html{
       font-size: 52%;
    }
-
    #menu-btn{
       display: inline-block;
    }
-
    section{
       padding: 2rem 1.2rem;
    }
-
    .title{
       font-size: 3.5rem;
    }
-
    .heading{
       min-height: 20vh;
       padding: 2.5rem 1.2rem;
    }
-
    .heading h3{
       font-size: 3.8rem;
    }
-
    .heading p{
       font-size: 1.8rem;
       line-height: 1.4;
    }
-   
-
    .header .flex{
       gap: 1rem;
       padding: 1.6rem 1.2rem;
    }
-
    .header .flex .navbar{
-   position: absolute;
-   top: 99%;
-   left: 0;
-   right: 0;
-   background-color: var(--white);
-   border-top: var(--border);
-   border-bottom: var(--border);
-   transform: scaleY(0);
-   transform-origin: top;
-   opacity: 0;
-   pointer-events: none;
-}
-
-.header .flex .navbar.active{
-   transform: scaleY(1);
-   opacity: 1;
-   pointer-events: auto;
-}
-
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      background-color: var(--white);
+      border-top: var(--border);
+      border-bottom: var(--border);
+      transform: scaleY(0);
+      transform-origin: top;
+      opacity: 0;
+      pointer-events: none;
+   }
+   .header .flex .navbar.active{
+      transform: scaleY(1);
+      opacity: 1;
+      pointer-events: auto;
+   }
    .header .flex .navbar a{
       display: block;
       margin: 1.6rem 2rem;
       font-size: 1.8rem;
    }
-
    .header .flex .account-box{
       width: calc(100vw - 2.4rem);
       right: 1.2rem;
       top: 115%;
       padding: 1.5rem;
    }
-
    .dashboard .box-container{
       grid-template-columns: 1fr;
       gap: 1.2rem;
    }
-
    .dashboard .box-container .box{
       padding: 1.6rem;
    }
-
    .dashboard .box-container .box h3{
       font-size: 3.6rem;
    }
-
    .dashboard .box-container .box p{
       font-size: 1.8rem;
       margin-top: 1.5rem;
    }
-
-   .add-products form,
-   .update-product form{
+   .add-products form, .update-product form{
       max-width: 100%;
       padding: 1.5rem;
    }
-
-   .add-products form h3,
-   .update-product form h3{
+   .add-products form h3, .update-product form h3{
       font-size: 2.3rem;
    }
-
-   .add-products form .box,
-   .update-product form .box{
+   .add-products form .box, .update-product form .box{
       font-size: 1.6rem;
       padding: 1rem 1.2rem;
    }
-
    .update-product .image{
       height: 24rem;
       width: 100%;
       object-fit: contain;
    }
-
-   .show-products .box-container,
-   .placed-orders .box-container,
-   .users .box-container,
-   .messages .box-container{
+   .show-products .box-container, .placed-orders .box-container, .users .box-container, .messages .box-container{
       grid-template-columns: 1fr;
       gap: 1.2rem;
    }
-
-   .show-products .box-container .box,
-   .placed-orders .box-container .box,
-   .users .box-container .box,
-   .messages .box-container .box{
+   .show-products .box-container .box, .placed-orders .box-container .box, .users .box-container .box, .messages .box-container .box{
       width: 100%;
       padding: 1.5rem;
    }
-
    .show-products .box-container .box .image{
       height: 18rem;
       width: 100%;
       object-fit: contain;
    }
-
    .show-products .box-container .box .price{
       font-size: 1.7rem;
       padding: .8rem;
    }
-
    .show-products .box-container .box .name{
       font-size: 1.8rem;
       line-height: 1.4;
    }
-
    .show-products .box-container .box .details{
       font-size: 1.4rem;
       line-height: 1.4;
    }
-
-   .placed-orders .box-container .box p,
-   .users .box-container .box p,
-   .messages .box-container .box p{
+   .placed-orders .box-container .box p, .users .box-container .box p, .messages .box-container .box p{
       font-size: 1.7rem;
       line-height: 1.5;
    }
-
    .placed-orders .box-container .box form select{
       font-size: 1.6rem;
       padding: 1rem 1.2rem;
    }
-
    .prod-toolbar{
       flex-direction: column;
       align-items: stretch;
       padding: 1.2rem;
       gap: .8rem;
    }
-
-   .toolbar-input,
-   .toolbar-select,
-   .prod-toolbar .btn{
+   .toolbar-input, .toolbar-select, .prod-toolbar .btn{
       width: 100%;
       flex: 1 1 100%;
    }
-
    .checkbox-label{
       justify-content: flex-start;
       font-size: 1.5rem;
    }
-
    .products-table{
       border-radius: .5rem;
    }
-
-   .products-table th,
-   .products-table td{
+   .products-table th, .products-table td{
       padding: .8rem .9rem;
       font-size: 1.35rem;
    }
-
-   .products-table .product-image,
-   .products-table .prod-img-small{
+   .products-table .product-image, .products-table .prod-img-small{
       width: 2.5rem;
       height: 2.5rem;
    }
-
-   .products-table .option-btn,
-   .products-table .delete-btn{
+   .products-table .option-btn, .products-table .delete-btn{
       font-size: 1.3rem;
       padding: .5rem .8rem;
    }
-
-   .stats-page,
-   .logs-page{
+   .stats-page, .logs-page{
       padding: 1.2rem;
    }
-
    .subtitle{
       font-size: 2rem;
    }
-
-   .stats-filter,
-   .logs-page .stats-filter{
+   .stats-filter, .logs-page .stats-filter{
       padding: 1.2rem;
    }
-
-   .stats-filter form .filter-row,
-   .logs-page .filter-row{
+   .stats-filter form .filter-row, .logs-page .filter-row{
       flex-direction: column;
       gap: 1rem;
    }
-
-   .stats-filter .filter-box,
-   .logs-page .filter-box{
+   .stats-filter .filter-box, .logs-page .filter-box{
       flex: 1 1 100%;
    }
-
-   .stats-filter .filter-box label,
-   .logs-page .filter-box label{
+   .stats-filter .filter-box label, .logs-page .filter-box label{
       font-size: 1.5rem;
    }
-
-   .stats-filter .filter-box input,
-   .stats-filter .filter-box select,
-   .logs-page .filter-box input,
-   .logs-page .filter-box select{
+   .stats-filter .filter-box input, .stats-filter .filter-box select, .logs-page .filter-box input, .logs-page .filter-box select{
       font-size: 1.5rem;
       padding: .9rem 1rem;
    }
-
-   .filter-buttons,
-   .logs-page .filter-buttons{
+   .filter-buttons, .logs-page .filter-buttons{
       flex-direction: column;
       align-items: stretch;
    }
-
-   .filter-buttons .btn,
-   .filter-buttons .delete-btn,
-   .filter-buttons .option-btn,
-   .logs-page .filter-buttons .btn,
-   .logs-page .filter-buttons .delete-btn,
-   .logs-page .filter-buttons .option-btn{
+   .filter-buttons .btn, .filter-buttons .delete-btn, .filter-buttons .option-btn, .logs-page .filter-buttons .btn, .logs-page .filter-buttons .delete-btn, .logs-page .filter-buttons .option-btn{
       width: 100%;
       text-align: center;
    }
-
    .stats-cards{
       grid-template-columns: 1fr;
       gap: 1rem;
    }
-
    .stats-card{
       padding: 1.4rem;
    }
-
    .stats-card h3{
       font-size: 1.6rem;
    }
-
    .stats-card p{
       font-size: 2rem;
    }
-
    .charts-grid{
       grid-template-columns: 1fr;
       gap: 1.2rem;
    }
-
    .chart-box{
       min-height: 29rem;
       padding: 1.2rem;
    }
-
    .chart-title{
       font-size: 1.7rem;
    }
-
    .chart-box canvas{
       height: 23rem !important;
    }
-
-   .db-table th,
-   .db-table td,
-   .logs-page .db-table th,
-   .logs-page .db-table td{
+   .db-table th, .db-table td, .logs-page .db-table th, .logs-page .db-table td{
       font-size: 1.35rem;
       padding: .8rem;
    }
-
    .message{
       flex-direction: column;
       align-items: flex-start;
       padding: 1.5rem;
    }
-
    .message span{
       font-size: 1.7rem;
    }
-
    .message i{
       align-self: flex-end;
    }
 }
-
 @media (max-width: 576px){
    html{
       font-size: 50%;
    }
-
    section{
       padding: 1.8rem 1rem;
    }
-
    .header .flex{
       padding: 1.4rem 1rem;
    }
-
    .header .flex .logo .logo-top{
       font-size: 2.1rem;
    }
-
    .header .flex .logo .logo-bottom{
       font-size: 1.2rem;
    }
-
    .header .flex .icons div{
       font-size: 2.1rem;
       margin-left: .9rem;
    }
-
    .header .flex .account-box{
       width: calc(100vw - 2rem);
       right: 1rem;
       padding: 1.3rem;
    }
-
-   .header .flex .account-box p,
-   .header .flex .account-box div{
+   .header .flex .account-box p, .header .flex .account-box div{
       font-size: 1.7rem;
    }
-
    .heading h3{
       font-size: 3.1rem;
    }
-
    .heading p{
       font-size: 1.6rem;
    }
-
    .title{
       font-size: 3rem;
    }
-
-   .btn,
-   .delete-btn,
-   .option-btn{
+   .btn, .delete-btn, .option-btn{
       width: 100%;
       text-align: center;
       padding: 1rem 1.3rem;
       font-size: 1.6rem;
    }
-
    .dashboard .box-container .box h3{
       font-size: 3rem;
    }
-
    .dashboard .box-container .box p{
       font-size: 1.6rem;
       padding: 1.2rem;
    }
-
    .show-products .box-container .box .image{
       height: 16rem;
    }
-
    .show-products .box-container .box .name{
       font-size: 1.7rem;
    }
-
    .show-products .box-container .box .details{
       font-size: 1.3rem;
    }
-
-   .placed-orders .box-container .box p,
-   .users .box-container .box p,
-   .messages .box-container .box p{
+   .placed-orders .box-container .box p, .users .box-container .box p, .messages .box-container .box p{
       font-size: 1.6rem;
    }
-
-   .toolbar-input,
-   .toolbar-select{
+   .toolbar-input, .toolbar-select{
       font-size: 1.5rem;
       padding: .9rem 1rem;
    }
-
-   .products-table th,
-   .products-table td,
-   .db-table th,
-   .db-table td{
+   .products-table th, .products-table td, .db-table th, .db-table td{
       font-size: 1.3rem;
       padding: .7rem;
    }
-
    .stats-card p{
       font-size: 1.8rem;
    }
-
    .chart-box{
       min-height: 26rem;
    }
-
    .chart-box canvas{
       height: 21rem !important;
    }
-
    .subtitle{
       font-size: 1.8rem;
    }
 }
-
 @media (max-width: 450px){
    html{
       font-size: 47%;
    }
-
    .heading h3{
       font-size: 2.7rem;
    }
-
    .title{
       font-size: 2.6rem;
    }
-
    .header .flex .navbar a{
       margin: 1.3rem 1.5rem;
       font-size: 1.7rem;
    }
-
-   .dashboard .box-container .box,
-   .show-products .box-container .box,
-   .placed-orders .box-container .box,
-   .users .box-container .box,
-   .messages .box-container .box,
-   .stats-card,
-   .chart-box{
+   .dashboard .box-container .box, .show-products .box-container .box, .placed-orders .box-container .box, .users .box-container .box, .messages .box-container .box, .stats-card, .chart-box{
       padding: 1.2rem;
    }
-
    .show-products .box-container .box .price{
       font-size: 1.5rem;
       padding: .7rem;
    }
-
    .show-products .box-container .box .image{
       height: 15rem;
    }
-
-   .products-table .option-btn,
-   .products-table .delete-btn{
+   .products-table .option-btn, .products-table .delete-btn{
       display: block;
       width: 100%;
       text-align: center;
       margin: .3rem 0;
    }
-
    .chart-box{
       min-height: 24rem;
    }
-
    .chart-box canvas{
       height: 19rem !important;
    }
